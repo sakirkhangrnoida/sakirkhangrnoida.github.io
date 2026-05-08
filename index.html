@@ -1,198 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>S K Pharmacy</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
-    body{ 
-      background:#f5f9ff;
-      color:#222;
-    }
-
-    header{
-      background:#0b5ed7;
-      color:white;
-      padding:20px;
-      text-align:center;
-    }
-
-    header h1{
-      font-size:40px;
-    }
-
-    header p{
-      margin-top:10px;
-      font-size:18px;
-    }
-
-    .hero{
-      padding:50px 20px;
-      text-align:center;
-    }
-
-    .hero h2{
-      font-size:45px;
-      color:#0b5ed7;
-    }
-
-    .hero p{
-      margin-top:20px;
-      font-size:20px;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:30px;
-      background:#0b5ed7;
-      color:white;
-      padding:15px 30px;
-      text-decoration:none;
-      border-radius:10px;
-      font-size:18px;
-    }
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      padding:40px;
-    }
-
-    .card{
-      background:white;
-      border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-    }
-
-    .card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-    }
-
-    .card-content{
-      padding:20px;
-      text-align:center;
-    }
-
-    .card-content h3{
-      margin-bottom:10px;
-      font-size:24px;
-    }
-
-    .price{
-      color:#0b5ed7;
-      font-size:22px;
-      font-weight:bold;
-    }
-
-    .order-btn{
-      display:inline-block;
-      margin-top:15px;
-      background:#198754;
-      color:white;
-      padding:12px 25px;
-      border-radius:10px;
-      text-decoration:none;
-    }
-
-    footer{
-      background:#0b5ed7;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:30px;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S K Pharmacy - ऑनलाइन स्टोर</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f0f2f5; color: #1a1a1a; }
+        header { background: #0046be; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .search-box { background: #232f3e; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        .search-box input { width: 85%; max-width: 500px; padding: 12px 20px; border-radius: 25px; border: none; outline: none; font-size: 16px; }
+        .container { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: auto; }
+        .product-card { background: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #eee; }
+        .product-card h3 { font-size: 15px; margin: 10px 0; color: #333; height: 40px; overflow: hidden; }
+        .price { color: #B12704; font-size: 18px; font-weight: bold; margin-bottom: 12px; }
+        .buy-btn { background: #ffd814; border: 1px solid #fcd200; padding: 10px; border-radius: 20px; cursor: pointer; width: 100%; font-weight: bold; }
+        .footer { background: #131a22; color: white; padding: 30px 20px; text-align: center; margin-top: 30px; }
+        .social-links a { color: white; font-size: 28px; margin: 0 15px; text-decoration: none; }
+        .whatsapp-channel { display: inline-block; background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
+    </style>
 </head>
-
 <body>
 
-  <header>
+<header>
     <h1>S K Pharmacy</h1>
-    <p>Online Medical Store & Fast Delivery</p>
-    <p>📞 7983006957 | 9258751739</p>
-    <p>📍 Greater Noida, Dankaur, Silapur Village</p>
-  </header>
+    <p>आपका स्वास्थ्य, हमारी जिम्मेदारी ❤️</p>
+</header>
 
-  <section class="hero">
-    <h2>Welcome To S K Pharmacy</h2>
-    <p>
-      यहाँ आपको हर प्रकार की दवाइयाँ और हेल्थ प्रोडक्ट्स मिलेंगे।
-    </p>
+<div class="search-box">
+    <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="प्रोडक्ट खोजें (Vasmol, BP Machine...)...">
+</div>
 
-    <a href="https://wa.me/917983006957" class="btn">
-      WhatsApp Order
-    </a>
-  </section>
-
-  <section class="products">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=800&auto=format&fit=crop" alt="">
-      
-      <div class="card-content">
-        <h3>Paracetamol</h3>
-        <p class="price">₹40</p>
-
-        <a href="https://wa.me/917983006957" class="order-btn">
-          Order Now
-        </a>
-      </div>
+<div class="container" id="productList">
+    <div class="product-card">
+        <h3>Super Vasmol 33 Kesh Kala</h3>
+        <p class="price">₹50</p>
+        <button class="buy-btn" onclick="orderWA('Super Vasmol 33')">WhatsApp ऑर्डर</button>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=800&auto=format&fit=crop" alt="">
-      
-      <div class="card-content">
-        <h3>Vitamin Syrup</h3>
+    <div class="product-card">
+        <h3>Digital BP Machine</h3>
+        <p class="price">₹1,450</p>
+        <button class="buy-btn" onclick="orderWA('BP Machine')">WhatsApp ऑर्डर</button>
+    </div>
+    <div class="product-card">
+        <h3>Digital Weight Machine</h3>
+        <p class="price">₹850</p>
+        <button class="buy-btn" onclick="orderWA('Weight Machine')">WhatsApp ऑर्डर</button>
+    </div>
+    <div class="product-card">
+        <h3>Vitamin Tablets</h3>
+        <p class="price">₹199</p>
+        <button class="buy-btn" onclick="orderWA('Vitamin Tablets')">WhatsApp ऑर्डर</button>
+    </div>
+    <div class="product-card">
+        <h3>Pain Relief Oil</h3>
         <p class="price">₹120</p>
-
-        <a href="https://wa.me/917983006957" class="order-btn">
-          Order Now
-        </a>
-      </div>
+        <button class="buy-btn" onclick="orderWA('Pain Relief Oil')">WhatsApp ऑर्डर</button>
     </div>
+</div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1626716493137-b67fe9501e76?q=80&w=800&auto=format&fit=crop" alt="">
-      
-      <div class="card-content">
-        <h3>Health Tablets</h3>
-        <p class="price">₹90</p>
-
-        <a href="https://wa.me/917983006957" class="order-btn">
-          Order Now
-        </a>
-      </div>
+<div class="footer">
+    <div class="social-links">
+        <a href="https://www.instagram.com/sakirkhangrnoida?igsh=MnVzemt4ZjRhcTBz" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1DyfvHEuB5/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
+    <a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43" class="whatsapp-channel" target="_blank">
+        <i class="fab fa-whatsapp"></i> व्हाट्सएप चैनल फॉलो करें
+    </a>
+    <div style="font-size: 13px; opacity: 0.8; margin-top: 15px;">
+        <p>संपर्क: 7983006957 | 9258751739</p>
+        <p>© 2026 S K Pharmacy</p>
+    </div>
+</div>
 
-  </section>
-
-  <footer>
-    <h2>S K Pharmacy</h2>
-    <p>Trusted Medical Store</p>
-  </footer>
-<div style="text-align: center; margin: 20px;">
-    <h2>Kesh King Oil</h2>
-    <img src="file_kesh king poi style="width: 100%; max-width: 300px; border-radius: 10px;">
-</div> price 165
+<script>
+function searchProduct() {
+    var input = document.getElementById("myInput");
+    var filter = input.value.toUpperCase();
+    var cards = document.getElementsByClassName("product-card");
+    for (var i = 0; i < cards.length; i++) {
+        var title = cards[i].getElementsByTagName("h3")[0];
+        if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+function orderWA(pname) {
+    window.open("https://wa.me/919258751739?text=" + encodeURIComponent("नमस्ते S K Pharmacy, मुझे " + pname + " ऑर्डर करना है।"), "_blank");
+}
+</script>
 
 </body>
 </html>
+
