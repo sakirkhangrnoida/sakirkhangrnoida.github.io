@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <script>
+function shareSite() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'S K Pharmacy - Professional Health Store',
+            text: 'दनकौर सिलापुर गांव की सबसे भरोसेमंद फार्मेसी। अभी विजिट करें!',
+            url: window.location.href
+        }).then(() => {
+            console.log('Shared successfully');
+        }).catch((err) => {
+            console.log('Error sharing:', err);
+        });
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("वेबसाइट लिंक कॉपी हो गया है! अब आप इसे कहीं भी शेयर कर सकते हैं।");
+    }
+}
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S K Pharmacy Pro - Premium Health Store</title>
@@ -196,7 +215,39 @@
             window.open("https://www.google.com/maps/search/S+K+Pharmacy+Silapur+Dankaur", "_blank");
         }
                       </script>
- 
+ <script>
+// शेयर करने का असली फंक्शन
+function shareSite() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'S K Pharmacy - Dr. Sakir Khan',
+            text: 'दनकौर सिलापुर गांव की अपनी ऑनलाइन फार्मेसी। अभी ऑर्डर करें!',
+            url: window.location.href
+        }).then(() => {
+            console.log('Shared successfully');
+        }).catch((err) => {
+            console.log('Error sharing:', err);
+        });
+    } else {
+        // अगर ब्राउजर शेयर सपोर्ट नहीं करता
+        navigator.clipboard.writeText(window.location.href);
+        alert("वेबसाइट लिंक कॉपी हो गया है! अब आप इसे व्हाट्सएप पर पेस्ट करके शेयर कर सकते हैं।");
+    }
+}
+
+// विजिटर ट्रैकर नोटिफिकेशन
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        if(!localStorage.getItem('firstVisit')) {
+            if(confirm("S K Pharmacy में आपका स्वागत है! क्या आप हमारे WhatsApp चैनल से जुड़ना चाहते हैं?")) {
+                window.location.href = "https://wa.me/917983006957?text=नमस्ते, मैंने आपकी वेबसाइट देखी है।";
+            }
+            localStorage.setItem('firstVisit', 'true');
+        }
+    }, 5000); // 5 सेकंड बाद पॉप-अप आएगा
+});
+ </script>
+    
 </body>
  </html>
  
