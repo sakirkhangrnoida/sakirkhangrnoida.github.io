@@ -403,9 +403,37 @@ url: window.location.href
 });
 }
 </script>
+<style>
+.sk-popup{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#16a34a;
+color:white;
+padding:14px 18px;
+border-radius:14px;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+z-index:9999;
+animation:popup 1s ease;
+}
+@keyframes popup{
+from{
+transform:translateY(100px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+</style>
 
+<div class="sk-popup">
+💊 Welcome To S K Pharmacy
+</div>
 </body>
 </html>
-</body>
-</html>
+
 
