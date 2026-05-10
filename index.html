@@ -1,6 +1,125 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S K Pharmacy Pro - Premium Health Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --amazon-blue: #131921; --amazon-light: #232f3e; --amazon-yellow: #febd69; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f3f3f3; }
+        
+        /* Header Section */
+        .navbar { background-color: var(--amazon-blue); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
+        .nav-top { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 20px; font-weight: bold; color: white; }
+        .logo span { color: var(--amazon-yellow); }
+        
+        /* Search Bar */
+        .search-box { display: flex; margin: 10px 0; background: white; border-radius: 4px; overflow: hidden; }
+        .search-box input { flex: 1; border: none; padding: 12px; outline: none; }
+        .search-box button { background: var(--amazon-yellow); border: none; padding: 0 15px; cursor: pointer; }
+
+        .location { font-size: 12px; color: #ccc; padding: 5px 0; }
+
+        /* Product Cards */
+        .main-container { padding: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .card { background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; position: relative; }
+        .card img { width: 100%; height: 120px; object-fit: contain; }
+        .btn-buy { background: #ffd814; border: 1px solid #fcd200; width: 100%; padding: 8px; border-radius: 20px; margin-top: 5px; cursor: pointer; font-weight: bold; }
+
+        /* Floating Social Buttons */
+        .social-float { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1001; }
+        .float-icon { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; }
+
+        /* Footer */
+        .footer { background: var(--amazon-blue); color: white; padding: 30px 20px; text-align: center; margin-top: 30px; }
+        .footer-links a { color: white; margin: 0 15px; text-decoration: none; font-size: 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-top">
+            <div class="logo">S K <span>Pharmacy</span></div>
+            <div><i class="fa fa-bell"></i> <i class="fa fa-shopping-cart" style="margin-left:15px;"></i></div>
+        </div>
+        <div class="location">
+            <i class="fa fa-map-marker-alt" style="color: var(--amazon-yellow);"></i> डेलिवरी: दनकौर, सिलापुर गांव, उत्तर प्रदेश
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search medicines, beauty products...">
+            <button><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="grid">
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/61MvS1D6pDL._SL1100_.jpg">
+                <h4>Kesh King Oil</h4>
+                <div style="color: #B12704; font-weight: bold;">₹140.00</div>
+                <button class="btn-buy" onclick="checkout()">Buy Now</button>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/51pW5u8A32L._SL1000_.jpg">
+                <h4>Himalaya Face Wash</h4>
+                <div style="color: #B12704; font-weight: bold;">₹95.00</div>
+                <button class="btn-buy" onclick="checkout()">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-float">
+        <a href="javascript:void(0)" onclick="shareSite()" class="float-icon" style="background: #007bff;"><i class="fa fa-share-alt"></i></a>
+        <a href="https://www.instagram.com/sakirkhangrnoida?igsh=MnVzemt4ZjRhcTBz" target="_blank" class="float-icon" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="https://www.facebook.com/share/1Zxk8TiyFx/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="http://googleusercontent.com/youtube.com/5" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 20px;">S K Pharmacy - सिलापुर गांव, दनकौर</p>
+        <p style="font-size: 11px; color: #888;">© 2026 S K Pharmacy. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        // शेयर बटन फंक्शन
+        function shareSite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'S K Pharmacy',
+                    text: 'सिलापुर गांव की बेस्ट ऑनलाइन फार्मेसी।',
+                    url: window.location.href
+                });
+            } else {
+                alert("लिंक कॉपी हो गया है!");
+            }
+        }
+
+        // विजिटर ट्रैकर (नोटिफिकेशन)
+        window.onload = function() {
+            setTimeout(function() {
+                if(confirm("S K Pharmacy में स्वागत है! क्या आप आज के ऑफर्स देखना चाहते हैं?")) {
+                    window.location.href = "https://wa.me/917983006957?text=नमस्ते, मैंने अभी आपकी वेबसाइट खोली है।";
+                }
+            }, 5000);
+        };
+
+        function checkout() {
+            window.location.href = "https://wa.me/917983006957?text=I want to order this product.";
+        }
+    </script>
+</body>
+</html>
+    
+    
     <script>
 function shareSite() {
     if (navigator.share) {
