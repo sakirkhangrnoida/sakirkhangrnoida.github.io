@@ -1,141 +1,202 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S K Pharmacy - ऑनलाइन स्टोर</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f0f2f5; }
-        header { background: #0046be; color: white; padding: 20px; text-align: center; }
-        .share-btn-top { background: #febd69; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; margin: 10px; }
-        .search-box { background: #232f3e; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        .search-box input { width: 80%; padding: 12px; border-radius: 25px; border: none; outline: none; }
-        .container { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-        .product-card { background: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 120px; object-fit: contain; border-radius: 8px; }
-        .price { color: #B12704; font-size: 18px; font-weight: bold; }
-        .buy-btn { background: #ffd814; border: 1px solid #fcd200; padding: 10px; border-radius: 20px; width: 100%; font-weight: bold; cursor: pointer; }
-        .footer { background: #131a22; color: white; padding: 30px; text-align: center; }
-        .social-links a { color: white; font-size: 28px; margin: 0 15px; text-decoration: none; }
-        .whatsapp-channel { display: inline-block; background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
-    </style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S K Pharmacy</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d47a1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+header {
+  background: #0d47a1;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 20px;
+}
+
+.install-btn {
+  background: #ffcc00;
+  color: black;
+  border: none;
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.search-box {
+  padding: 20px;
+  background: #1f2937;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+}
+
+.products {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 30px;
+}
+
+.price {
+  color: #d32f2f;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.order-btn {
+  display: inline-block;
+  background: #ffdd00;
+  color: black;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #0d47a1;
+  color: white;
+}
+</style>
 </head>
 <body>
 
 <header>
-    <h1>S K Pharmacy</h1>
-    <p>आपका स्वास्थ्य, हमारी जिम्मेदारी ❤️</p>
-    <button class="share-btn-top" onclick="shareSite()"><i class="fas fa-share-alt"></i> वेबसाइट शेयर करें</button>
+  <h1>S K Pharmacy</h1>
+  <p>आपका स्वास्थ्य, हमारी जिम्मेदारी ❤️</p>
+  <button class="install-btn" id="installBtn">📲 App Install करें</button>
 </header>
 
 <div class="search-box">
-    <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="दवाई खोजें...">
+  <input type="text" placeholder="दवाई खोजें...">
 </div>
 
-<div class="container" id="productList">
-    <div class="product-card">
-        <img src="24449.jpg" alt="BP Machine">
-        <h3>Digital BP Machine</h3>
-        <p class="price">₹1,450</p>
-        <button class="buy-btn" onclick="orderWA('Digital BP Machine')">WhatsApp ऑर्डर</button>
-    </div>
-    <div class="product-card">
-        <img src="24450.jpg" alt="Weight Machine">
-        <h3>Weight Machine</h3>
-        <p class="price">₹850</p>
-        <button class="buy-btn" onclick="orderWA('Weight Machine')">WhatsApp ऑर्डर</button>
-    </div>
-    <div class="product-card">
-        <img src="24451.jpg" alt="Vasmol">
-        <h3>Super Vasmol 33</h3>
-        <p class="price">₹50</p>
-        <button class="buy-btn" onclick="orderWA('Super Vasmol 33')">WhatsApp ऑर्डर</button>
-    </div>
+<div class="products">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=800" alt="BP Machine">
+    <h2>Digital BP Machine</h2>
+    <div class="price">₹1450</div>
+    <a class="order-btn" href="https://wa.me/917983006957">WhatsApp ऑर्डर</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=800" alt="Weight Machine">
+    <h2>Weight Machine</h2>
+    <div class="price">₹850</div>
+    <a class="order-btn" href="https://wa.me/917983006957">WhatsApp ऑर्डर</a>
+  </div>
+
 </div>
 
-<div class="footer">
-    <div class="social-links">
-        <a href="https://www.instagram.com/sakirkhangrnoida" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1DyfvHEuB5/" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
-    <a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43" class="whatsapp-channel" target="_blank">
-        <i class="fab fa-whatsapp"></i> व्हाट्सएप चैनल फॉलो करें
-    </a>
-    <p>संपर्क: 7983006957 | 9258751739</p>
-</div>
+<footer>
+  📍 Greater Noida, Dankaur, Silapur Gaon <br>
+  📞 7983006957 / 9258751739
+</footer>
 
 <script>
-function searchProduct() {
-    var input = document.getElementById("myInput");
-    var filter = input.value.toUpperCase();
-    var cards = document.getElementsByClassName("product-card");
-    for (var i = 0; i < cards.length; i++) {
-        var title = cards[i].getElementsByTagName("h3")[0];
-        if (title.innerText.toUpperCase().indexOf(filter) > -1) {
-            cards[i].style.display = "";
-        } else {
-            cards[i].style.display = "none";
-        }
-    }
-}
-function shareSite() {
-    if (navigator.share) {
-        navigator.share({ title: 'S K Pharmacy', url: window.location.href });
-    } else {
-        alert("लिंक कॉपी करें: " + window.location.href);
-    }
-}
-function orderWA(pname) {
-    window.open("https://wa.me/919258751739?text=नमस्ते, मुझे " + pname + " चाहिए।");
-}
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  installBtn.addEventListener('click', async () => {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(outcome);
+  });
+});
 </script>
 
+</body>
+</html><section style="padding:20px;">
+<h2 style="font-size:35px;">🔥 Trending Beauty & Health Products</h2>
 
-
-<div style="padding: 20px; font-family: sans-serif; background: #f9f9f9; text-align: center;">
-
-    <h3>Our Medicines</h3>
-    <div style="display: flex; gap: 10px; overflow-x: auto; padding: 10px;">
-        <img src="https://via.placeholder.com/150?text=Medicine+1" style="border-radius: 10px; width: 140px;">
-        <img src="https://via.placeholder.com/150?text=Medicine+2" style="border-radius: 10px; width: 140px;">
-        <img src="https://via.placeholder.com/150?text=Medicine+3" style="border-radius: 10px; width: 140px;">
-    </div>
-
-    <hr style="border: 0.5px solid #ddd; margin: 20px 0;">
-
-    <p>लेटेस्ट अपडेट के लिए चैनल फॉलो करें:</p>
-    <a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43" style="display: inline-block; background: #0046be; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 10px;">Follow S K Channel</a>
-    <br>
-    <a href="https://wa.me/917983006957" style="display: inline-block; background: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">WhatsApp: 7983006957</a>
-
-    <hr style="border: 0.5px solid #ddd; margin: 20px 0;">
-
-    <h3>Subscription</h3>
-    <input type="email" placeholder="Email यहाँ लिखें" style="padding: 10px; width: 60%; border: 1px solid #ccc; border-radius: 5px;">
-    <button style="padding: 10px; background: #fe9431; color: white; border: none; border-radius: 5px;">Subscribe</button>
-
-    <hr style="border: 0.5px solid #ddd; margin: 20px 0;">
-
-    <div style="border: 2px dashed #0046be; padding: 15px; border-radius: 10px; color: #0046be;">
-        <strong>Sponsorship / Ads Area</strong>
-        <p style="font-size: 12px; color: #555;">(अपनी कमाई शुरू करने के लिए यहाँ विज्ञापन लगायें)</p>
-    </div>
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?q=80&w=800">
+<h2>Beauty Cream</h2>
+<a class="order-btn" href="https://wa.me/917983006957">Buy Now</a>
 </div>
-    
 
-        ... पिछला सारा कोड ...
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=800">
+<h2>Weight Care Product</h2>
+<a class="order-btn" href="https://wa.me/917983006957">Buy Now</a>
+</div>
 
-    <div style="padding: 20px; font-family: 'Segoe UI', sans-serif; background: #f9f9f9; text-align: center;">
-        <h3 style="color: #0046be;">Our Best Sellers</h3>
-        ... (बाकी का नया कोड) ...
-    </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=800">
+<h2>Wellness Product</h2>
+<a class="order-btn" href="https://wa.me/917983006957">Buy Now</a>
+</div>
 
-</body>
-</html>
+</section>
 
-</body>
-</html>
+<section style="padding:20px; text-align:center;">
+<h2>💳 Payment Options</h2>
+<p>✔ Online Payment</p>
+<p>✔ Cash on Delivery</p>
+<p>✔ WhatsApp Order</p>
+</section>
 
+<section style="padding:20px; text-align:center; background:#fff; margin:20px; border-radius:20px;">
+<h2>📲 Follow S K Pharmacy</h2>
+
+<p>
+<a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43">WhatsApp Channel</a>
+</p>
+
+<p>
+<a href="https://www.instagram.com/sakirkhangrnoida?igsh=MnVzemt4ZjRhcTBz">Instagram</a>
+</p>
+
+<p>
+<a href="https://www.youtube.com/@SakirKhan-0786sk">YouTube Channel</a>
+</p>
+</section>
 
