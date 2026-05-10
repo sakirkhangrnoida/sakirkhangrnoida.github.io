@@ -366,6 +366,36 @@ window.addEventListener('load', function() {
     }, 5000); // 5 सेकंड बाद पॉप-अप आएगा
 });
  </script>
+    <div style="background: #fdf2f2; padding: 20px; margin: 15px; border-radius: 12px; border: 2px dashed #e63946; text-align: center;">
+    <h3 style="color: #e63946; margin-bottom: 10px;">पर्चा (Prescription) अपलोड करें</h3>
+    <p style="font-size: 14px; color: #555;">डॉक्टर का पर्चा भेजें और दवाइयां मंगवाएं</p>
+    <input type="file" id="upload" hidden>
+    <label for="upload" style="background: #e63946; color: white; padding: 10px 20px; border-radius: 8px; display: inline-block; cursor: pointer; margin-top: 10px; font-weight: bold;">
+        📷 फोटो चुनें
+    </label>
+    </div>
+    <div style="background: #131921; color: white; padding: 15px; margin: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between;">
+    <div>
+        <h4 style="margin: 0; color: #ff9900;">दवा का समय याद रखें</h4>
+        <p style="margin: 0; font-size: 12px;">अपना अगला डोज़ मिस न करें</p>
+    </div>
+    <button onclick="alert('रिमाइंडर सेट हो गया!')" style="background: #ff9900; border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold;">सेट करें</button>
+    </div>
+    <div style="position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;">
+    <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे दवा ऑर्डर करनी है" target="_blank" style="background: #25d366; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; color: white; font-size: 24px;">
+        <i class="fab fa-whatsapp"></i> 💬
+    </a>
+    <a href="tel:+917983006957 9258751739" style="background: #007bff; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; color: white; font-size: 20px;">
+        📞
+    </a>
+    </div>
+    <script>
+function toggleDarkMode() {
+    document.body.style.backgroundColor = "#1a1a1a";
+    document.body.style.color = "#ffffff";
+    alert("Dark Mode एक्टिवेट हो गया!");
+}
+    </script>
     
 </body>
  </html>
