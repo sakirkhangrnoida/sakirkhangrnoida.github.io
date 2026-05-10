@@ -1,306 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<title>S K Pharmacy Pro</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S K Pharmacy Pro - Premium Health Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --amazon-blue: #131921; --amazon-light: #232f3e; --amazon-yellow: #febd69; --btn-orange: #f0c14b; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #e3e6e6; }
+
+        /* Header */
+        .header { background: var(--amazon-blue); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
+        .top-row { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: bold; color: white; cursor: pointer; }
+        .logo span { color: var(--amazon-yellow); }
+
+        /* Advanced Search */
+        .search-bar { display: flex; background: white; border-radius: 6px; margin: 10px 0; overflow: hidden; border: 2px solid transparent; }
+        .search-bar:focus-within { border: 2px solid var(--amazon-yellow); }
+        .search-bar input { flex: 1; border: none; padding: 12px; font-size: 16px; outline: none; }
+        .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; font-size: 18px; cursor: pointer; }
+
+        /* Scrolling Categories with Icons */
+        .cat-scroll { display: flex; overflow-x: auto; background: white; padding: 15px 10px; gap: 20px; border-bottom: 1px solid #ddd; }
+        .cat-box { text-align: center; min-width: 70px; text-decoration: none; color: #333; }
+        .cat-box i { background: #f0f2f2; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; font-size: 20px; color: var(--amazon-light); margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto; }
+        .cat-box span { font-size: 12px; font-weight: 500; }
+
+        /* Banner Slider */
+        .banner { width: 100%; height: 180px; background: linear-gradient(to bottom, rgba(0,0,0,0), #e3e6e6), url('https://m.media-amazon.com/images/I/61lwJy4B8PL._SX3000_.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        /* Product Cards Grid */
+        .product-section { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .p-card { background: white; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .p-card .badge { position: absolute; top: 0; left: 0; background: #cc0c39; color: white; padding: 4px 8px; font-size: 10px; border-radius: 8px 0 8px 0; }
+        .p-card img { width: 100%; height: 130px; object-fit: contain; }
+        .p-name { font-size: 14px; font-weight: 500; margin: 10px 0 5px; color: #0f1111; height: 38px; overflow: hidden; }
+        .rating { color: #ffa41c; font-size: 12px; margin-bottom: 5px; }
+        .p-price { font-size: 18px; font-weight: bold; color: #B12704; }
+        .p-price span { font-size: 12px; text-decoration: line-through; color: #565959; font-weight: normal; }
+
+        /* Amazon Style Buttons */
+        .btn-cart { background: var(--amazon-yellow); border: 1px solid #a88734; padding: 10px; border-radius: 20px; margin-top: 10px; font-weight: 500; cursor: pointer; width: 100%; }
+        .btn-buy { background: #ffa41c; border: 1px solid #a88734; padding: 10px; border-radius: 20px; margin-top: 5px; font-weight: 500; cursor: pointer; width: 100%; }
+
+        /* Floating WhatsApp Button */
+        .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2000; text-decoration: none; }
+
+        /* Footer */
+        .footer-nav { background: #37475a; color: white; text-align: center; padding: 15px; font-size: 14px; margin-top: 20px; }
+        .footer-main { background: var(--amazon-blue); color: #ccc; padding: 30px 20px; text-align: center; line-height: 2; }
+        .footer-main a { color: white; margin: 0 10px; font-size: 22px; text-decoration: none; }
+    </style>
 </head>
-<!-- TOP NAVIGATION BAR -->
-
-<div style="background:#0a7cff;
-color:white;
-padding:12px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-position:sticky;
-top:0;
-z-index:999;">
-
-<!-- LEFT -->
-<div style="font-weight:bold;font-size:18px;">
-S K Pharmacy
-</d <!-- SETTINGS BUTTON -->
-<a href="#" onclick="toggleSettings()" 
-style="color:white;text-decoration:none;">
-Settings
-</a>
-
-<!-- SETTINGS PANEL -->
-<div id="settingsPanel" style="display:none;
-position:fixed;
-top:60px;
-right:10px;
-width:250px;
-background:white;
-color:black;
-padding:15px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.3);
-z-index:1000;">
-
-<h3>⚙ Settings</h3>
-
-<ul style="list-style:none;padding:0;line-height:2;">
-
-<li>🌙 Dark Mode</li>
-<li>🔔 Notifications</li>
-<li>🔒 Privacy</li>
-<li>🌐 Language</li>
-<li>📍 Location</li>
-<li>📱 App Version 1.0</li>
-<li>🧹 Clear Cache</li>
-<li>ℹ About Us</li>
-
-</ul>
-
-<button onclick="toggleSettings()"
-style="background:red;color:white;padding:8px;border:none;border-radius:8px;">
-Close
-</button>
-
-</div>
-
-<script>
-function toggleSettings(){
-var panel = document.getElementById("settingsPanel");
-if(panel.style.display === "none"){
-panel.style.display = "block";
-}else{
-panel.style.display = "none";
-}
-}
-</script>
-<body style="margin:0;font-family:Arial;background:#f4f8ff;">
- <div style="font-family: Arial, sans-serif; padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; background-color: #f4f7f6;">
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="garnier_hair_color.jpg" alt="Garnier Color Naturals" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">Garnier Color Naturals</h3>
-  </div>
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="kesh_king_oil.jpg" alt="Kesh King Gold Oil" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">Kesh King Ayurvedic Oil</h3>
-  </div>
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="himalaya_neem.jpg" alt="Himalaya Neem Face Wash" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">Himalaya Neem Face Wash</h3>
-  </div>
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="ponds_cream.jpg" alt="Pond's Bright Beauty" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">Pond's Bright Beauty</h3>
-  </div>
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="sunscreen_lotion.jpg" alt="SunShade Sunscreen" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">SunShade Sunscreen</h3>
-  </div>
-
-  <div style="background: white; border-radius: 12px; width: 180px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <img src="indulekha.jpg" alt="Indulekha Hair Oil" style="width: 100%; height: 150px; object-fit: contain; border-radius: 8px;">
-    <h3 style="font-size: 14px; color: #333; margin: 10px 0;">Indulekha Hair Oil</h3>
-  </div>
-
- </div>
-  
-<!-- <!-- TOP MENU (WORKING LINKS) -->
-
-<div style="background:#0a7cff;
-color:white;
-padding:12px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-position:sticky;
-top:0;
-z-index:999;">
-
-<div style="font-weight:bold;font-size:18px;">
-S K Pharmacy
-</div>
-
-<div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px;">
-
-<a href="https://instagram.com" target="_blank" style="color:white;text-decoration:none;">Instagram</a>
-
-<a href="https://youtube.com" target="_blank" style="color:white;text-decoration:none;">YouTube</a>
-
-<a href="https://facebook.com" target="_blank" style="color:white;text-decoration:none;">Facebook</a>
-
-<a href="#" onclick="alert('Login page coming soon')" style="color:white;text-decoration:none;">Login</a>
-
-<a href="#" onclick="alert('Settings open')" style="color:white;text-decoration:none;">Settings</a>
-
-<a href="https://maps.google.com" target="_blank" style="color:white;text-decoration:none;">Map</a>
-
-</div>
-
-</div>
-<div style="font-weight:bold;">S K Pharmacy</div>
-
-<div>
-<span style="margin:5px;">🏠</span>
-<span style="margin:5px;">🔔</span>
-<span style="margin:5px;">⚙</span>
-<span style="margin:5px;">🔑</span>
-</div>
-
-</div>
-
-<!-- BALANCE BAR -->
-<div style="background:white;
-margin:10px;
-padding:15px;
-border-radius:10px;
-text-align:center;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-
-<h3>💰 Your Wallet Balance</h3>
-<h2 style="color:green;">₹0.00</h2>
-
-<button style="background:#0a7cff;color:white;padding:10px 20px;border:none;border-radius:8px;">
-Add Money
-</button>
-
-</div>
-
-<!-- SOCIAL -->
-<div style="text-align:center;padding:10px;">
-
-<button style="background:#E1306C;color:white;padding:8px 12px;border:none;border-radius:8px;">Instagram</button>
-<button style="background:#1877F2;color:white;padding:8px 12px;border:none;border-radius:8px;">Facebook</button>
-<button style="background:red;color:white;padding:8px 12px;border:none;border-radius:8px;">YouTube</button>
-
-</div>
-
-<!-- PRODUCTS -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:15px;">
-
-<!-- CARD -->
-<div style="background:white;width:250px;padding:15px;border-radius:15px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;">
-
-<img src="https://via.placeholder.com/200"
-style="width:100%;border-radius:15px;">
-
-<h3>Paracetamol</h3>
-<p>Fever Relief</p>
-
-<button onclick="addToCart()"
-style="background:green;color:white;padding:10px 15px;border:none;border-radius:8px;">
-Add to Cart
-</button>
-
-</div>
-
-<div style="background:white;width:250px;padding:15px;border-radius:15px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;">
-
-<img src="https://via.placeholder.com/200"
-style="width:100%;border-radius:15px;">
-
-<h3>Cough Syrup</h3>
-<p>Cold Relief</p>
-
-<button onclick="addToCart()"
-style="background:green;color:white;padding:10px 15px;border:none;border-radius:8px;">
-Add to Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- CART -->
-<div style="background:white;
-margin:15px;
-padding:15px;
-border-radius:10px;
-text-align:center;">
-
-<h2>🛒 Cart Items: <span id="cart">0</span></h2>
-
-<button style="background:#0a7cff;color:white;padding:10px 20px;border:none;border-radius:8px;">
-Checkout
-</button>
-
-</div>
-<button onclick="openEarning()"
-style="padding:12px 20px;
-background:green;
-color:white;
-border:none;
-border-radius:10px;">
-Start Earning
-</button>
-
-<div id="earnBox" style="display:none;
-position:fixed;
-top:100px;
-left:50%;
-transform:translateX(-50%);
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.3);
-z-index:999;
-text-align:center;">
-
-<h3>💰 Earn System</h3>
-
-<p>✔ Share app and earn rewards</p>
-<p>✔ Views bonus system</p>
-<p>✔ Referral earning</p>
-
-<button onclick="closeEarning()"
-style="background:red;color:white;padding:8px 15px;border:none;border-radius:8px;">
-Close
-</button>
-
-</div>
-
-<script>
-function openEarning(){
-document.getElementById("earnBox").style.display = "block";
-}
-
-function closeEarning(){
-document.getElementById("earnBox").style.display = "none";
-}
-</script>
-
-
-</div>
-
-<!-- WHATSAPP -->
-<div style="text-align:center;margin:20px;">
-<a href="https://wa.me/917983006957"
-style="background:green;color:white;padding:14px 25px;text-decoration:none;border-radius:10px;">
-Order on WhatsApp
-</a>
-</div>
-
-<!-- FOOTER -->
-<div style="background:#111;color:white;text-align:center;padding:20px;">
-
-<h3>S K Pharmacy</h3>
-<p>📍 ग्रेटर नोएडा दनकौर सिलापुर, UP</p>
-<p>📞 7983006957</p>
-
-</div>
-
-<!-- SCRIPT -->
-<script>
-let count = 0;
-function addToCart(){
-count++;
-document.getElementById("cart").innerText = count;
-}
-</script>
-
+<body>
+
+    <div class="header">
+        <div class="top-row">
+            <div class="logo">S K <span>Pharmacy</span></div>
+            <div style="font-size: 18px;">
+                <i class="fa fa-user" onclick="showLogin()" style="margin-right: 15px;"></i>
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+        <div style="font-size: 12px; margin-top: 8px;">
+            <i class="fa fa-map-marker-alt" style="color: var(--amazon-yellow);"></i> सिलापुर गांव, दनकौर, 250103
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for medicines & more...">
+            <button onclick="searchItem()"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="cat-scroll">
+        <a href="#" class="cat-box"><i class="fa fa-pills"></i><span>Medicines</span></a>
+        <a href="#" class="cat-box"><i class="fa fa-heartbeat"></i><span>Health</span></a>
+        <a href="#" class="cat-box"><i class="fa fa-baby"></i><span>Baby Care</span></a>
+        <a href="#" class="cat-box"><i class="fa fa-spa"></i><span>Skin Care</span></a>
+        <a href="#" class="cat-box"><i class="fa fa-plus-square"></i><span>First Aid</span></a>
+    </div>
+
+    <div class="banner">
+        <h2 style="background: rgba(0,0,0,0.5); padding: 10px;">Great Summer Sale: Up to 50% Off</h2>
+    </div>
+
+    <div class="product-section">
+        <div class="p-card">
+            <div class="badge">Best Seller</div>
+            <img src="https://m.media-amazon.com/images/I/61MvS1D6pDL._SL1100_.jpg" alt="Oil">
+            <div class="p-name">Kesh King Ayurvedic Hair Oil (100ml)</div>
+            <div class="rating">⭐⭐⭐⭐☆ (420)</div>
+            <div class="p-price">₹140 <span>₹180</span></div>
+            <button class="btn-cart" onclick="addToCart('Kesh King')">Add to Cart</button>
+            <button class="btn-buy" onclick="checkout()">Buy Now</button>
+        </div>
+
+        <div class="p-card">
+            <div class="badge">Limited Deal</div>
+            <img src="https://m.media-amazon.com/images/I/51pW5u8A32L._SL1000_.jpg" alt="Wash">
+            <div class="p-name">Himalaya Purifying Neem Face Wash</div>
+            <div class="rating">⭐⭐⭐⭐⭐ (1.2k)</div>
+            <div class="p-price">₹95 <span>₹120</span></div>
+            <button class="btn-cart" onclick="addToCart('Himalaya')">Add to Cart</button>
+            <button class="btn-buy" onclick="checkout()">Buy Now</button>
+        </div>
+    </div>
+
+    <div style="padding: 15px;">
+        <div style="background: white; border: 1px solid #ddd; padding: 20px; border-radius: 8px; text-align: center;">
+            <p style="color: #666; font-size: 11px;">ADVERTISEMENT</p>
+            <h3/h3>
+            <p>संपर्क करें: 7983006957</p>
+            <button style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">अभी जुड़ें</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/917983006957" class="wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="footer-nav" onclick="window.scrollTo(0,0)">Back to Top</div>
+    <div class="footer-main">
+        <div style="margin-bottom: 20px;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>दनकौर सिलापुर गांव, ग्रेटर नोएडा, उत्तर प्रदेश</p>
+        <p>हेल्पलाइन: 9258751739 | 7983006957</p>
+        <hr style="border: 0.1px solid #444; margin: 20px 0;">
+        <p style="font-size: 11px;">© 2026 S K Pharmacy. Online Business Solutions.</p>
+    </div>
+
+    <script>
+        // 1. ट्रैकिंग फंक्शन (पता चलेगा किसने वेबसाइट खोली)
+        window.onload = function() {
+            let time = new Date().toLocaleString();
+            let device = navigator.userAgent.includes("Mobile") ? "Mobile" : "Desktop";
+            console.log("Visit Detected: " + time + " from " + device);
+            
+        }
+
+        // 2. पेमेंट फंक्शन
+        function checkout() {
+            let choice = confirm("Cash on Delivery (COD) चुनना चाहते हैं? ऑनलाइन पेमेंट के लिए WhatsApp पर जाएँ।");
+            if(choice) {
+                alert("आपका ऑर्डर नोट कर लिया गया है। सिलापुर गांव में 24 घंटे में डेलिवरी होगी।");
+            } else {
+                window.location.href = "https://wa.me/917983006957?text=I want to pay online for my order";
+            }
+        }
+
+        // 3. सर्च फंक्शन
+        function searchItem() {
+            let val = document.getElementById('searchInput').value;
+            alert("Searching for: " + val + "... (Stock checking in সिलापुर store)");
+        }
+
+        // 4. लॉगिन फंक्शन
+        function showLogin() {
+            let user = prompt("अपना मोबाइल नंबर डालें लॉगिन करने के लिए:");
+            if(user) alert("Welcome " + user + "! You are now logged in.");
+        }
+    </script>
+
+     <script>
+        // 1. ट्रेकिंग: जैसे ही कोई साइट खोलेगा उसे WhatsApp पर आने का न्योता मिलेगा
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                // यह चेक करेगा कि क्या यह नया यूजर है
+                if(!localStorage.getItem('visited')) {
+                    if(confirm("S K Pharmacy में आपका स्वागत है! क्या आप आज के स्पेशल ऑफर्स और डिस्काउंट देखना चाहते हैं?")) {
+                        window.location.href = "https://wa.me/917983006957?text=नमस्ते डॉ. साकिर खान, मैंने अभी आपकी वेबसाइट खोली है। मुझे लेटेस्ट ऑफर्स बताएं।";
+                    }
+                    localStorage.setItem('visited', 'true');
+                }
+            }, 4000); // 4 सेकंड बाद दिखेगा ताकि यूजर पहले साइट देख ले
+        });
+
+        // 2. शेयर फंक्शन (गूगल और सोशल मीडिया पर शेयर करने के लिए)
+        function shareSite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'S K Pharmacy - Professional Health Store',
+                    text: 'दनकौर, सिलापुर गांव की सबसे भरोसेमंद फार्मेसी। घर बैठे दवाइयां मंगवाएं।',
+                    url: window.location.href
+                });
+            } else {
+                alert("Link copied: " + window.location.href);
+            }
+        }
+
+        // 3. गूगल मैप्स पर अपनी दुकान दिखाने के लिए फंक्शन
+        function openMap() {
+            window.open("https://www.google.com/maps/search/S+K+Pharmacy+Silapur+Dankaur", "_blank");
+        }
+                      </script>
+ 
 </body>
-</html>
+ </html>
+ 
