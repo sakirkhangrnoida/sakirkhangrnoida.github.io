@@ -3,192 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S K Pharmacy Pro - Dr. Sakir Khan</title>
+    <title>S K Pharmacy - Dr. Sakir Khan</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { 
             --amazon-blue: #131921; 
-            --amazon-light: #232f3e; 
             --amazon-yellow: #febd69; 
             --btn-orange: #f0c14b;
-            --bg-gray: #e3e6e6;
+            --success-green: #28a745;
         }
 
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; 
-            background-color: var(--bg-gray);
-            color: #0f1111;
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #e3e6e6; color: #333; }
 
-        /* Header & Navigation */
+        /* Notification Bar */
+        #notif { background: #ff9900; color: white; text-align: center; padding: 10px; font-weight: bold; font-size: 14px; }
+
+        /* Header */
         .header { background: var(--amazon-blue); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
-        .top-row { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: bold; cursor: pointer; }
+        .logo { font-size: 22px; font-weight: bold; }
         .logo span { color: var(--amazon-yellow); }
-
-        .search-bar { display: flex; background: white; border-radius: 6px; margin: 10px 0; overflow: hidden; border: 2px solid transparent; }
-        .search-bar:focus-within { border: 2px solid var(--amazon-yellow); }
-        .search-bar input { flex: 1; border: none; padding: 12px; font-size: 16px; outline: none; }
+        .search-bar { display: flex; background: white; border-radius: 6px; margin: 10px 0; overflow: hidden; }
+        .search-bar input { flex: 1; border: none; padding: 12px; outline: none; }
         .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; cursor: pointer; }
 
-        /* Categories */
-        .cat-scroll { display: flex; overflow-x: auto; background: white; padding: 15px 10px; gap: 20px; border-bottom: 1px solid #ddd; }
-        .cat-box { text-align: center; min-width: 75px; text-decoration: none; color: #333; font-size: 12px; }
-        .cat-box i { background: #f0f2f2; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; font-size: 20px; display: block; margin: 0 auto 5px; }
+        /* Shop Photo Banner */
+        .shop-banner { width: 100%; height: 250px; background: #000; overflow: hidden; position: relative; border-bottom: 4px solid var(--amazon-yellow); }
+        .shop-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .shop-text { position: absolute; bottom: 20px; left: 20px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
-        /* Banner */
-        .banner { 
-            width: 100%; height: 150px; 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--bg-gray)), url('https://m.media-amazon.com/images/I/61lwJy4B8PL._SX3000_.jpg'); 
-            background-size: cover; display: flex; align-items: center; justify-content: center; color: white; text-align: center;
-        }
+        /* Feature Sections */
+        .container { padding: 15px; }
+        .feature-box { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .earn-btn { background: var(--success-green); color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; width: 100%; cursor: pointer; }
 
-        /* Product Grid */
-        .product-section { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .p-card { background: white; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .p-card img { width: 100%; height: 120px; object-fit: contain; }
-        .p-name { font-size: 14px; font-weight: 500; margin: 8px 0; height: 35px; overflow: hidden; }
-        .p-price { font-size: 18px; font-weight: bold; color: #B12704; }
-        .p-price span { font-size: 12px; text-decoration: line-through; color: #565959; }
-
-        .btn-buy { background: var(--amazon-yellow); border: 1px solid #a88734; padding: 10px; border-radius: 20px; margin-top: 10px; font-weight: bold; cursor: pointer; }
-
-        /* Special Features */
-        .prescription-box { background: #fdf2f2; padding: 20px; margin: 15px; border-radius: 12px; border: 2px dashed #e63946; text-align: center; }
-        .reminder-box { background: var(--amazon-blue); color: white; padding: 15px; margin: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
+        /* Medicine Gallery (No Price) */
+        .gallery-title { font-size: 18px; font-weight: bold; margin: 15px 0 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .p-card { background: white; border-radius: 8px; padding: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .p-card img { width: 100%; height: 130px; object-fit: contain; border-radius: 5px; }
+        .p-name { margin-top: 8px; font-size: 14px; font-weight: 500; }
 
         /* Floating Buttons */
         .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
-        .share-float { position: fixed; bottom: 20px; right: 20px; background: #007bff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; cursor: pointer; }
+        .map-float { position: fixed; bottom: 20px; right: 20px; background: #4285F4; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
 
-        /* Footer */
-        .footer { background: var(--amazon-blue); color: #ccc; padding: 30px 20px; text-align: center; margin-top: 20px; }
-        .footer a { color: white; margin: 0 10px; font-size: 24px; text-decoration: none; }
+        .footer { background: var(--amazon-blue); color: white; padding: 30px 15px; text-align: center; margin-top: 20px; }
     </style>
 </head>
 <body>
 
+    <div id="notif">📢 S K Pharmacy: Cash on Delivery (COD) उपलब्ध है!</div>
+
     <header class="header">
-        <div class="top-row">
-            <div class="logo" onclick="location.reload()">S K <span>Pharmacy</span></div>
-            <div>
-                <i class="fa fa-user" onclick="login()" style="margin-right: 15px;"></i>
-                <i class="fa fa-shopping-cart"></i>
-            </div>
-        </div>
-        <div style="font-size: 12px; margin-top: 8px;">
-            <i class="fa fa-map-marker-alt" style="color: var(--amazon-yellow);"></i> डेलिवरी: सिलापुर गांव, दनकौर
+        <div class="logo">S K <span>Pharmacy</span></div>
+        <div style="font-size: 12px; margin-top: 5px;">
+            <i class="fa fa-map-marker-alt" style="color: var(--amazon-yellow);"></i> सिलापुर गांव, दनकौर, उत्तर प्रदेश
         </div>
         <div class="search-bar">
-            <input type="text" id="searchInp" placeholder="दवाइयां या ब्यूटी प्रोडक्ट्स खोजें...">
-            <button onclick="search()"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="दवाइयों के नाम खोजें...">
+            <button><i class="fa fa-search"></i></button>
         </div>
     </header>
 
-    <div class="cat-scroll">
-        <a href="#" class="cat-box"><i class="fa fa-pills"></i><span>Medicines</span></a>
-        <a href="#" class="cat-box"><i class="fa fa-spa"></i><span>Skin Care</span></a>
-        <a href="#" class="cat-box"><i class="fa fa-baby"></i><span>Baby Care</span></a>
-        <a href="#" class="cat-box"><i class="fa fa-heartbeat"></i><span>Health</span></a>
-    </div>
-
-    <div class="banner">
-        <h2 style="background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 5px;">महा सेल: 50% तक की छूट</h2>
-    </div>
-
-    <div class="prescription-box">
-        <h3 style="color: #e63946; margin: 0;">पर्चा (Prescription) भेजें</h3>
-        <p style="font-size: 13px;">फोटो खींचकर WhatsApp पर ऑर्डर दें</p>
-        <button onclick="window.location.href='https://wa.me/917983006957?text=नमस्ते, मुझे यह दवा मंगवानी है (पर्चा संलग्न है)'" style="background: #e63946; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px;">
-            📷 फोटो भेजें
-        </button>
-    </div>
-
-    <div class="product-section">
-        <div class="p-card">
-            <img src="https://m.media-amazon.com/images/I/61MvS1D6pDL._SL1100_.jpg">
-            <div class="p-name">Kesh King Ayurvedic Oil</div>
-            <div class="p-price">₹140 <span>₹180</span></div>
-            <button class="btn-buy" onclick="buy('Kesh King Oil')">अभी खरीदें</button>
-        </div>
-
-        <div class="p-card">
-            <img src="https://m.media-amazon.com/images/I/51pW5u8A32L._SL1000_.jpg">
-            <div class="p-name">Himalaya Face Wash</div>
-            <div class="p-price">₹95 <span>₹120</span></div>
-            <button class="btn-buy" onclick="buy('Himalaya Face Wash')">अभी खरीदें</button>
+    <div class="shop-banner">
+        <img src="24536.jpg" alt="S K Pharmacy Store">
+        <div class="shop-text">
+            <h2 style="margin:0;">S K Pharmacy</h2>
+            <p style="margin:0;">डॉ. साकिर खान - आपकी सेवा में</p>
         </div>
     </div>
 
-    <div class="reminder-box">
-        <div>
-            <h4 style="margin: 0; color: var(--amazon-yellow);">दवा का समय याद रखें</h4>
-            <p style="margin: 0; font-size: 11px;">अपना डोज़ मिस न करें</p>
+    <div class="container">
+        
+        <div class="feature-box" style="border-left: 5px solid #007bff;">
+            <h4 style="margin: 0; color: #007bff;"><i class="fa fa-hand-holding-usd"></i> पैसा कमाने का मौका!</h4>
+            <p style="font-size: 13px;">हमारे साथ Affiliate बनकर कमीशन कमाएं।</p>
+            <button class="earn-btn" onclick="earnMoney()">अभी आवेदन करें</button>
         </div>
-        <button onclick="alert('रिमाइंडर सेट हो गया है!')" style="background: var(--amazon-yellow); border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold;">सेट करें</button>
+
+        <div class="feature-box" style="text-align: center; background: #fff3cd;">
+            <h4 style="margin: 0;">लेटेस्ट ऑफर्स के लिए सब्सक्राइब करें</h4>
+            <input type="email" placeholder="Email डालें" style="margin-top: 10px; padding: 10px; width: 80%; border-radius: 5px; border: 1px solid #ccc;">
+            <button style="background: var(--amazon-blue); color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 10px; cursor: pointer;">सब्सक्राइब</button>
+        </div>
+
+        <div class="gallery-title">उपलब्ध दवाइयां (Gallery)</div>
+        <div class="grid">
+            <div class="p-card">
+                <img src="24537.jpg" alt="Medicine">
+                <div class="p-name">Premium Health Product</div>
+            </div>
+            <div class="p-card">
+                <img src="24539.jpg" alt="Medicine">
+                <div class="p-name">Skin & Health Care</div>
+            </div>
+            <div class="p-card">
+                <img src="https://m.media-amazon.com/images/I/61MvS1D6pDL._SL1100_.jpg" alt="Medicine">
+                <div class="p-name">Kesh King Oil</div>
+            </div>
+            <div class="p-card">
+                <img src="https://m.media-amazon.com/images/I/51pW5u8A32L._SL1000_.jpg" alt="Medicine">
+                <div class="p-name">Himalaya Face Wash</div>
+            </div>
+        </div>
+
+        <div class="feature-box" style="margin-top: 20px; text-align: center; border: 2px dashed #e63946;">
+            <h4 style="color: #e63946; margin: 0;">Cash on Delivery (COD)</h4>
+            <p style="font-size: 13px;">घर पर दवा पहुँचने पर ही पैसे दें।</p>
+            <button style="background: #e63946; color: white; border: none; padding: 10px 25px; border-radius: 20px; font-weight: bold; cursor: pointer;" onclick="window.location.href='https://wa.me/917983006957?text=नमस्ते, मुझे दवा आर्डर करनी है।'">व्हाट्सएप पर आर्डर दें</button>
+        </div>
     </div>
 
     <a href="https://wa.me/917983006957" class="wa-float"><i class="fab fa-whatsapp"></i></a>
-    <div class="share-float" onclick="shareSite()"><i class="fa fa-share-alt"></i></div>
+    <a href="http://googleusercontent.com/maps.google.com/4 kaur, Uttar Pradesh" target="_blank" class="map-float"><i class="fa fa-map-marker-alt"></i></a>
 
     <footer class="footer">
-        <div style="margin-bottom: 20px;">
-            <a href="https://www.instagram.com/sakirkhangrnoida?igsh=MnVzemt4ZjRhcTBz" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://whatsapp.com/channel/0029VbBhlzk5Ui2STrfHQf43" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+        <div style="font-size: 24px; margin-bottom: 15px;">
+            <a href="https://www.instagram.com/sakirkhangrnoida" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>दनकौर सिलापुर गांव, उत्तर प्रदेश</p>
-        <p style="font-size: 12px; color: #888;">© 2026 S K Pharmacy | Designed by Dr. Sakir Khan</p>
+        <p>S K Pharmacy - सिलापुर गांव, दनकौर</p>
+        <p style="font-size: 11px; color: #888;">© 2026 Designed by Dr. Sakir Khan</p>
     </footer>
 
     <script>
-        // WhatsApp Buy Function
-        function buy(product) {
-            window.location.href = "https://wa.me/917983006957?text=नमस्ते, मुझे " + product + " आर्डर करना है।";
-        }
-
-        // Search Function
-        function search() {
-            let item = document.getElementById('searchInp').value;
-            if(item) alert(item + " स्टॉक में चेक किया जा रहा है...");
-        }
-
-        // Login Prompt
-        function login() {
-            let phone = prompt("लॉगिन के लिए मोबाइल नंबर डालें:");
-            if(phone) alert("स्वागत है! आप लॉगिन हो चुके हैं।");
-        }
-
-        // Real Share Function
-        function shareSite() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'S K Pharmacy',
-                    text: 'दनकौर सिलापुर गांव की अपनी ऑनलाइन फार्मेसी। अभी ऑर्डर करें!',
-                    url: window.location.href
-                });
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert("लिंक कॉपी हो गया है! इसे शेयर करें।");
+        function earnMoney() {
+            let name = prompt("अपना नाम बताएं:");
+            if(name) {
+                window.location.href = "https://wa.me/917983006957?text=नमस्ते साकिर भाई, मैं " + name + " हूँ और आपके साथ Affiliate के रूप में काम करना चाहता हूँ।";
             }
         }
-
-        // Welcome Popup
-        window.onload = function() {
-            setTimeout(function() {
-                if(!localStorage.getItem('visited')) {
-                    if(confirm("S K Pharmacy में स्वागत है! क्या आप आज के ऑफर्स देखना चाहते हैं?")) {
-                        window.location.href = "https://wa.me/917983006957?text=नमस्ते, मुझे आज के ऑफर्स बताएं।";
-                    }
-                    localStorage.setItem('visited', 'true');
-                }
-            }, 3000);
-        };
     </script>
-
 </body>
-                </html>
-    
+            </html>
+            
