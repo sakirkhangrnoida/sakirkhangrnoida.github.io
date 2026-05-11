@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -11,62 +11,61 @@
         :root { 
             --amazon-blue: #131921; 
             --amazon-yellow: #febd69; 
-            --btn-orange: #f0c14b;
+            --light-gray: #e3e6e6;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #e3e6e6; color: #333; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: var(--light-gray); color: #333; line-height: 1.6; }
 
-        /* Floating Notification */
-        .notif-bar { background: #ff9900; color: white; text-align: center; padding: 10px; font-weight: bold; font-size: 14px; position: relative; }
+        /* Notification */
+        .notif-bar { background: #ff9900; color: white; text-align: center; padding: 10px; font-weight: bold; font-size: 14px; }
 
         /* Header */
         .header { background: var(--amazon-blue); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 24px; font-weight: bold; }
         .logo span { color: var(--amazon-yellow); }
-        .search-bar { display: flex; background: white; border-radius: 6px; margin: 10px 0; overflow: hidden; }
-        .search-bar input { flex: 1; border: none; padding: 12px; outline: none; }
-        .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; cursor: pointer; }
+        .location-text { font-size: 12px; margin-top: 5px; color: #ccc; }
 
-        /* Shop Photo Banner (24536.jpg) */
+        /* Shop Banner */
         .shop-banner { width: 100%; height: 260px; background: #000; position: relative; overflow: hidden; border-bottom: 5px solid var(--amazon-yellow); }
-        .shop-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+        .shop-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
         .shop-label { position: absolute; bottom: 20px; left: 20px; color: white; text-shadow: 2px 2px 5px black; }
 
-        /* Main Container */
+        /* Container */
         .container { padding: 15px; }
 
-        /* Feature Cards */
-        .feature-card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--amazon-yellow); }
-        .btn-green { background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
+        /* Card System */
+        .card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        .card-title { font-weight: bold; font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 
         /* Medicine Gallery */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .p-card { background: white; border-radius: 10px; padding: 12px; text-align: center; transition: 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .p-card { background: white; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .p-card img { width: 100%; height: 130px; object-fit: contain; border-radius: 5px; }
+        .p-name { margin-top: 8px; font-size: 14px; font-weight: 500; }
+
+        /* Action Buttons */
+        .btn { display: block; width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; margin-top: 10px; font-size: 14px; }
+        .btn-green { background: #28a745; color: white; }
+        .btn-blue { background: #007bff; color: white; }
+        .btn-dark { background: var(--amazon-blue); color: white; }
 
         /* Floating Action Buttons */
-        .btn-float { position: fixed; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; border: none; cursor: pointer; }
+        .float-btn { position: fixed; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; border: none; cursor: pointer; }
         .wa-btn { bottom: 20px; left: 20px; background: #25d366; }
         .share-btn { bottom: 20px; right: 20px; background: #007bff; }
         .map-btn { bottom: 90px; right: 20px; background: white; color: #ea4335; font-size: 24px; width: 50px; height: 50px; }
 
-        /* Footer */
-        .footer { background: var(--amazon-blue); color: #ccc; padding: 40px 20px; text-align: center; }
-        .footer a { color: white; margin: 0 15px; font-size: 28px; text-decoration: none; }
+        .footer { background: var(--amazon-blue); color: #888; padding: 40px 20px; text-align: center; font-size: 13px; }
     </style>
 </head>
 <body>
 
-    <div class="notif-bar">🚀 धमाका सेल! Cash on Delivery (COD) सुविधा उपलब्ध है।</div>
+    <div class="notif-bar">🚀 S K Pharmacy: Cash on Delivery (COD) सुविधा उपलब्ध है!</div>
 
     <header class="header">
         <div class="logo">S K <span>Pharmacy</span></div>
-        <div style="font-size: 13px; margin-top: 5px;">
+        <div class="location-text">
             <i class="fa fa-map-marker-alt" style="color: var(--amazon-yellow);"></i> सिलापुर गांव, दनकौर, उत्तर प्रदेश
-        </div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="दवाइयों के नाम खोजें...">
-            <button onclick="search()"><i class="fa fa-search"></i></button>
         </div>
     </header>
 
@@ -74,84 +73,79 @@
         <img src="24536.jpg" alt="S K Pharmacy Store">
         <div class="shop-label">
             <h2 style="margin:0;">S K Pharmacy</h2>
-            <p style="margin:5px 0 0;">डॉ. साकिर खान - आपकी सेवा में</p>
+            <p style="margin:5px 0 0;">डॉ. साकिर खान (CMS-ED) - आपकी सेवा में</p>
         </div>
     </div>
 
     <div class="container">
         
-        <div class="feature-card">
-            <h4 style="margin:0; color: #007bff;"><i class="fa fa-coins"></i> हमारे साथ पैसे कमाएं!</h4>
-            <p style="font-size: 13px; margin: 8px 0;">Affiliate बनकर दवाइयां प्रमोट करें और कमीशन पाएं।</p>
-            <button class="btn-green" onclick="earnMoney()">Affiliate आवेदन करें</button>
+        <div class="card" style="border-top: 4px solid var(--amazon-yellow);">
+            <div class="card-title" style="color: var(--amazon-blue);"><i class="fa fa-user-md"></i> हमारे बारे में</div>
+            <p style="font-size: 14px; margin:0;">
+                मैं <b>डॉ. साकिर खान</b>, सिलापुर गांव में आपकी बेहतर सेहत के लिए समर्पित हूँ। <b>CMS-ED</b> प्रशिक्षित होने के नाते, हमारा उद्देश्य आपको असली और क्वालिटी दवाइयां सही सलाह के साथ देना है।
+            </p>
         </div>
 
-        <h3 style="margin: 20px 0 10px;">हमारी दवाइयां (Gallery)</h3>
+        <div class="card" style="border-left: 5px solid #e63946;">
+            <div class="card-title" style="color: #e63946;"><i class="fa fa-headset"></i> Help & Support टीम</div>
+            <p style="font-size: 13px; margin-bottom: 10px;">आर्डर या स्वास्थ्य सलाह के लिए हमसे तुरंत जुड़ें:</p>
+            <div style="display: flex; gap: 8px;">
+                <a href="tel:+917983006957" class="btn btn-dark" style="margin:0;"><i class="fa fa-phone"></i> कॉल</a>
+                <a href="https://wa.me/917983006957?text=नमस्ते, मुझे मदद चाहिए।" class="btn btn-green" style="margin:0;"><i class="fab fa-whatsapp"></i> चैट</a>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 5px solid #007bff;">
+            <div class="card-title" style="color: #007bff;"><i class="fa fa-hand-holding-usd"></i> पैसा कमाने का मौका</div>
+            <p style="font-size: 13px;">हमारे Affiliate प्रोग्राम से जुड़ें और घर बैठे कमीशन कमाएं।</p>
+            <button class="btn btn-blue" onclick="earnMoney()">अभी आवेदन करें</button>
+        </div>
+
+        <h3 style="margin: 25px 0 15px; font-size: 18px; border-left: 4px solid var(--amazon-yellow); padding-left: 10px;">दवाइयां (Gallery)</h3>
         <div class="grid">
             <div class="p-card">
                 <img src="24537.jpg" alt="Medicine">
-                <p style="font-weight: 500; font-size: 14px;">Health Supplement</p>
+                <div class="p-name">Health & Fitness</div>
             </div>
             <div class="p-card">
                 <img src="24539.jpg" alt="Medicine">
-                <p style="font-weight: 500; font-size: 14px;">Ayurvedic Care</p>
+                <div class="p-name">Ayurvedic Care</div>
             </div>
         </div>
 
-        <div class="feature-card" style="background: #fff8e1; border: 1px dashed #ffa000; text-align: center;">
-            <h4 style="margin:0;">न्यूज़लेटर सब्सक्राइब करें</h4>
-            <input type="email" placeholder="अपना ईमेल यहाँ लिखें" style="width: 85%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <button style="background: var(--amazon-blue); color: white; border: none; padding: 10px 25px; margin-top: 10px; border-radius: 5px; cursor: pointer;">सब्सक्राइब</button>
-        </div>
     </div>
 
-    <a href="https://wa.me/917983006957?text=नमस्ते साकिर भाई, मुझे दवा आर्डर करनी है।" class="btn-float wa-btn"><i class="fab fa-whatsapp"></i></a>
-    
-    <button class="btn-float share-btn" onclick="shareSite()"><i class="fa fa-share-alt"></i></button>
-    
-    <a href="https://www.google.com/maps/search/S+K+Pharmacy+Silapur+Dankaur" target="_blank" class="btn-float map-btn"><i class="fa fa-location-arrow"></i></a>
+    <a href="https://wa.me/917983006957" class="float-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
+    <button class="float-btn share-btn" onclick="shareSite()"><i class="fa fa-share-alt"></i></button>
+    <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="float-btn map-btn"><i class="fa fa-location-arrow"></i></a>
 
     <footer class="footer">
         <div style="margin-bottom: 20px;">
-            <a href="https://www.instagram.com/sakirkhangrnoida"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/sakirkhangrnoida" style="color: white; font-size: 24px; margin: 0 15px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white; font-size: 24px; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
         </div>
         <p>S K Pharmacy - सिलापुर गांव, दनकौर</p>
-        <p style="font-size: 11px; color: #888; margin-top: 20px;">© 2026 S K Pharmacy | Designed by Dr. Sakir Khan</p>
+        <p>© 2026 Designed by Dr. Sakir Khan</p>
     </footer>
 
     <script>
-        // शेयर बटन फंक्शन
         function shareSite() {
             if (navigator.share) {
                 navigator.share({
                     title: 'S K Pharmacy',
-                    text: 'डॉ. साकिर खान की ऑनलाइन फार्मेसी से दवाइयां घर बैठे मंगवाएं। यहाँ देखें:',
+                    text: 'डॉ. साकिर खान की ऑनलाइन फार्मेसी से दवाइयां मंगवाएं। यहाँ देखें:',
                     url: window.location.href
                 });
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert("लिंक कॉपी कर लिया गया है! अब आप इसे कहीं भी भेज सकते हैं।");
+                alert("वेबसाइट लिंक कॉपी हो गया है!");
             }
         }
 
-        // पैसा कमाने का आवेदन
         function earnMoney() {
-            let name = prompt("अपना नाम बताएं:");
-            if(name) {
-                window.location.href = "https://wa.me/917983006957?text=नमस्ते साकिर भाई, मैं " + name + " हूँ और आपके साथ काम करना चाहता हूँ।";
-            }
-        }
-
-        // साधारण सर्च अलर्ट
-        function search() {
-            let val = document.getElementById('searchInput').value;
-            if(val) {
-                alert("अभी '" + val + "' स्टॉक में चेक की जा रही है। कृपया व्हाट्सएप पर मैसेज करें।");
-            }
+            window.location.href = "https://wa.me/917983006957?text=नमस्ते साकिर भाई, मुझे पैसा कमाने वाले प्रोग्राम की जानकारी चाहिए।";
         }
     </script>
 </body>
-                            </html>
-
+ </html>
+ 
