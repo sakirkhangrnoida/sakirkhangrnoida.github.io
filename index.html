@@ -18,8 +18,10 @@
 
         /* Categories Section */
         .cat-row { display: flex; justify-content: space-around; background: white; padding: 15px 0; border-bottom: 1px solid #ddd; overflow-x: auto; }
-        .cat-item { text-align: center; min-width: 80px; }
-        .cat-icon { background: #f0f2f2; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; font-size: 20px; color: var(--amazon-blue); }
+        /* लिंक के लिए CSS सुधार */
+        .cat-item { text-align: center; min-width: 80px; text-decoration: none; color: inherit; display: block; }
+        .cat-icon { background: #f0f2f2; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; font-size: 20px; color: var(--amazon-blue); transition: 0.3s; }
+        .cat-item:hover .cat-icon { background: var(--amazon-yellow); }
         .cat-item span { font-size: 11px; font-weight: bold; }
 
         /* Banner/Offer Cards */
@@ -60,10 +62,22 @@
     </div>
 
     <div class="cat-row">
-        <div class="cat-item"><div class="cat-icon"><i class="fa fa-pills"></i></div><span>Medicines</span></div>
-        <div class="cat-item"><div class="cat-icon"><i class="fa fa-leaf"></i></div><span>Skin Care</span></div>
-        <div class="cat-item"><div class="cat-icon"><i class="fa fa-baby"></i></div><span>Baby Care</span></div>
-        <div class="cat-item"><div class="cat-icon"><i class="fa fa-heartbeat"></i></div><span>Health</span></div>
+        <a href="medicines.html" class="cat-item">
+            <div class="cat-icon"><i class="fa fa-pills"></i></div>
+            <span>Medicines</span>
+        </a>
+        <a href="skincare.html" class="cat-item">
+            <div class="cat-icon"><i class="fa fa-leaf"></i></div>
+            <span>Skin Care</span>
+        </a>
+        <a href="babycare.html" class="cat-item">
+            <div class="cat-icon"><i class="fa fa-baby"></i></div>
+            <span>Baby Care</span>
+        </a>
+        <a href="health.html" class="cat-item">
+            <div class="cat-icon"><i class="fa fa-heartbeat"></i></div>
+            <span>Health</span>
+        </a>
     </div>
 
     <div class="offer-banner">
@@ -99,7 +113,7 @@
     </div>
 
     <a href="https://wa.me/917983006957" class="float-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="#" class="float-btn map-btn"><i class="fa fa-location-arrow"></i></a>
+    <a href="https://www.google.com/maps?q=Silapur,Dankaur" class="float-btn map-btn"><i class="fa fa-location-arrow"></i></a>
     <button class="float-btn share-btn" onclick="shareSite()"><i class="fa fa-share-alt"></i></button>
 
     <script>
@@ -114,4 +128,4 @@
     </script>
 </body>
                     </html>
-                    
+        
