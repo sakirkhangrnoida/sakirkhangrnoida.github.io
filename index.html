@@ -7,97 +7,99 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --amazon-blue: #131921; --amazon-yellow: #febd69; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #e3e6e6; color: #333; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f3f3f3; color: #333; }
         
+        /* Header & Search Bar */
         .header { background: var(--amazon-blue); color: white; padding: 10px; position: sticky; top: 0; z-index: 1000; }
         .search-container { padding: 5px 10px 10px; background: var(--amazon-blue); }
         .search-bar { display: flex; background: white; border-radius: 6px; overflow: hidden; }
         .search-bar input { flex: 1; border: none; padding: 12px; outline: none; }
-        .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; cursor: pointer; }
+        .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; }
 
-        .cat-scroll { display: flex; overflow-x: auto; background: white; padding: 15px 5px; gap: 15px; border-bottom: 1px solid #ddd; }
-        .cat-item { text-align: center; min-width: 75px; flex-shrink: 0; }
-        .cat-icon { background: #f0f2f2; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; color: var(--amazon-blue); font-size: 20px; }
+        /* Categories Section */
+        .cat-row { display: flex; justify-content: space-around; background: white; padding: 15px 0; border-bottom: 1px solid #ddd; overflow-x: auto; }
+        .cat-item { text-align: center; min-width: 80px; }
+        .cat-icon { background: #f0f2f2; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; font-size: 20px; color: var(--amazon-blue); }
         .cat-item span { font-size: 11px; font-weight: bold; }
 
-        /* फोटो फ्रेमिंग - फोटो घेरने का ऑप्शन */
-        .photo-frame { 
-            width: 90%; 
-            height: 220px; 
-            margin: 15px auto; 
-            background: #fff; 
-            padding: 8px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-            border: 3px solid var(--amazon-yellow); 
-            overflow: hidden;
-        }
-        .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+        /* Banner/Offer Cards */
+        .offer-banner { background: linear-gradient(135deg, #1d2b64, #f8ad9d); color: white; padding: 20px; border-radius: 12px; margin: 15px; text-align: center; border-left: 5px solid var(--amazon-yellow); }
+
+        /* Photo Frame */
+        .photo-frame { width: 90%; margin: 15px auto; background: white; padding: 8px; border-radius: 15px; border: 3px solid var(--amazon-yellow); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .photo-frame img { width: 100%; border-radius: 10px; display: block; min-height: 180px; object-fit: cover; }
 
         .container { padding: 0 15px 100px; }
         .card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .presc-box { border: 2px dashed #e63946; text-align: center; }
-        .btn-red { background: #e63946; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; }
+        .btn-red { background: #e63946; color: white; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; }
 
-        /* सोशल और मैप्स बटन */
-        .social-footer { text-align: center; padding: 20px; background: white; margin-top: 10px; border-radius: 12px; }
-        .social-icon { font-size: 30px; margin: 0 10px; text-decoration: none; }
-        
-        .float-btn { position: fixed; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; }
-        .wa-btn { bottom: 20px; left: 20px; background: #25d366; }
-        .map-btn { bottom: 90px; right: 20px; background: white; color: #ea4335; width: 50px; height: 50px; font-size: 24px; border: 2px solid #ea4335; }
-        .share-btn { bottom: 20px; right: 20px; background: #007bff; }
+        /* Social Icons */
+        .social-row { text-align: center; padding: 15px; display: flex; justify-content: center; gap: 20px; }
+        .social-row a { font-size: 35px; text-decoration: none; }
+
+        /* Floating Buttons */
+        .float-btn { position: fixed; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2000; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .wa-btn { bottom: 20px; left: 20px; width: 60px; height: 60px; background: #25d366; font-size: 30px; }
+        .map-btn { bottom: 90px; right: 20px; width: 50px; height: 50px; background: white; color: #ea4335; font-size: 24px; border: 2px solid #ea4335; }
+        .share-btn { bottom: 20px; right: 20px; width: 60px; height: 60px; background: #007bff; font-size: 28px; border: none; }
     </style>
 </head>
 <body>
 
     <header class="header">
         <div style="font-size: 22px; font-weight: bold;">S K <span style="color:var(--amazon-yellow)">Pharmacy</span></div>
-        <div style="font-size: 12px; margin-top: 4px;"><i class="fa fa-map-marker-alt" style="color:var(--amazon-yellow)"></i> सिलापुर गांव, दनकौर</div>
+        <div style="font-size: 12px; margin-top: 4px;"><i class="fa fa-map-marker-alt" style="color:var(--amazon-yellow)"></i> सिलापुर गांव, दनकौर, उत्तर प्रदेश</div>
     </header>
 
     <div class="search-container">
         <div class="search-bar">
-            <input type="text" placeholder="दवाइयों के नाम खोजें...">
+            <input type="text" placeholder="दवाइयां या ब्यूटी प्रोडक्ट्स खोजें...">
             <button><i class="fa fa-search"></i></button>
         </div>
     </div>
 
-    <div class="cat-scroll">
+    <div class="cat-row">
         <div class="cat-item"><div class="cat-icon"><i class="fa fa-pills"></i></div><span>Medicines</span></div>
         <div class="cat-item"><div class="cat-icon"><i class="fa fa-leaf"></i></div><span>Skin Care</span></div>
         <div class="cat-item"><div class="cat-icon"><i class="fa fa-baby"></i></div><span>Baby Care</span></div>
         <div class="cat-item"><div class="cat-icon"><i class="fa fa-heartbeat"></i></div><span>Health</span></div>
     </div>
 
+    <div class="offer-banner">
+        <h2 style="margin:0; font-size: 18px;">🚚 सिलापुर में पहली बार!</h2>
+        <p style="margin:5px 0; font-size: 14px;">असली दवाइयां अब घर बैठे पाएं।</p>
+        <div style="background: rgba(255,255,255,0.2); padding: 5px; border-radius: 5px; font-weight: bold;">Cash on Delivery (COD) उपलब्ध</div>
+    </div>
+
     <div class="photo-frame">
-        <img src="24546.jpg" alt="Shop Photo">
+        <img src="shop.jpg" alt="S K Pharmacy Store">
     </div>
 
     <div class="container">
         <div class="card presc-box">
             <h3 style="color:#e63946; margin:0;">पर्चा (Prescription) भेजें</h3>
-            <p style="font-size:13px; margin:10px 0;">WhatsApp पर फोटो भेजकर आर्डर बुक करें</p>
+            <p style="font-size:13px; margin:10px 0;">पर्चे की फोटो खींचकर WhatsApp करें।</p>
             <a href="https://wa.me/917983006957" class="btn-red"><i class="fa fa-camera"></i> फोटो भेजें</a>
         </div>
 
-        <div class="card">
-            <h4 style="margin:0;"><i class="fa fa-share-nodes"></i> हमसे जुड़ें</h4>
-            <div class="social-footer">
-                <a href="https://www.facebook.com/sakir.khan.90410" class="social-icon" style="color: #1877F2;"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/sakirkhangrnoida" class="social-icon" style="color: #E4405F;"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@skpharmacy" class="social-icon" style="color: #FF0000;"><i class="fab fa-youtube"></i></a>
-            </div>
+        <div class="card" style="border-top: 4px solid #28a745;">
+            <h4 style="margin:0;"><i class="fa fa-check-circle" style="color:#28a745"></i> भरोसे का नाम</h4>
+            <p style="font-size:13px; line-height:1.6;"><b>डॉ. साकिर खान (CMS-ED)</b> - आपकी बेहतर सेहत के लिए असली और क्वालिटी दवाइयां सही सलाह के साथ।</p>
         </div>
 
-        <div class="card" style="border-top: 4px solid var(--amazon-yellow);">
-            <h4 style="margin:0;"><i class="fa fa-user-md"></i> हमारे बारे में</h4>
-            <p style="font-size:13px;">डॉ. साकिर खान (CMS-ED) - सिलापुर गांव, दनकौर</p>
+        <div class="card">
+            <h4 style="margin:0; text-align:center;"><i class="fa fa-share-nodes"></i> हमसे सोशल मीडिया पर जुड़ें</h4>
+            <div class="social-row">
+                <a href="https://www.facebook.com/sakir.khan.90410" style="color: #1877F2;"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sakirkhangrnoida" style="color: #E4405F;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: #FF0000;"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </div>
 
     <a href="https://wa.me/917983006957" class="float-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://maps.app.goo.gl/YourMapLink" class="float-btn map-btn"><i class="fa fa-location-arrow"></i></a>
+    <a href="#" class="float-btn map-btn"><i class="fa fa-location-arrow"></i></a>
     <button class="float-btn share-btn" onclick="shareSite()"><i class="fa fa-share-alt"></i></button>
 
     <script>
@@ -111,5 +113,5 @@
         }
     </script>
 </body>
-        </html>
-        
+                    </html>
+                    
