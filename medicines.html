@@ -3,72 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicines - S K Pharmacy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>S K Pharmacy - Medicines</title>
     <style>
-        :root { --amazon-blue: #131921; --amazon-yellow: #febd69; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f3f3f3; color: #333; }
-        .header { background: var(--amazon-blue); color: white; padding: 15px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .back-btn { color: white; text-decoration: none; font-size: 20px; margin-right: 15px; }
-        .container { padding: 15px; }
-        .item-card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid #eee; }
-        .item-img { width: 70px; height: 70px; background: #f0f2f2; border-radius: 10px; margin-right: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
-        .item-info { flex: 1; }
-        .item-name { font-weight: bold; font-size: 16px; color: #232f3e; margin-bottom: 4px; }
-        .item-price { color: #B12704; font-weight: bold; font-size: 18px; }
-        .order-btn { background: #25d366; color: white; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-size: 14px; font-weight: bold; display: inline-block; margin-top: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .order-btn i { margin-right: 5px; }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 10px; }
+        .header { background: #1a237e; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; align-items: center; }
+        .product-image { width: 80px; height: 80px; background: #eee; border-radius: 8px; margin-right: 15px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .product-image img { max-width: 100%; max-height: 100%; object-fit: cover; }
+        .product-details { flex-grow: 1; }
+        .product-details h3 { margin: 0; font-size: 18px; color: #333; }
+        .price { color: #b12704; font-size: 20px; font-weight: bold; margin: 5px 0; }
+        .description { font-size: 13px; color: #666; margin-bottom: 10px; }
+        .whatsapp-btn { background: #25d366; color: white; text-decoration: none; padding: 10px 15px; border-radius: 6px; display: inline-block; font-size: 14px; font-weight: bold; }
+        .footer-msg { text-align: center; color: #666; font-size: 14px; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="back-btn"><i class="fa fa-arrow-left"></i></a>
-        <div style="font-size: 20px; font-weight: bold;">Medicines</div>
-    </header>
-    <div class="container">
-        <div class="item-card">
-            <div class="item-img">💊</div>
-            <div class="item-info">
-                <div class="item-name">Paracetamol (Bukhar के लिए)</div>
-                <div class="item-price">₹10</div>
-                <a href="https://wa.me/917983006957?text=नमस्ते डॉ. साकिर, मुझे Paracetamol आर्डर करना है।" class="order-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp पर आर्डर करें
-                </a>
-            </div>
-        </div>
-        <div class="item-card">
-            <div class="item-img">🧴</div>
-            <div class="item-info">
-                <div class="item-name">Pain Relief Gel</div>
-                <div class="item-price">₹45</div>
-                <a href="https://wa.me/917983006957?text=नमस्ते डॉ. साकिर, मुझे Pain Relief Gel आर्डर करना है।" class="order-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp पर आर्डर करें
-                </a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 30px; color: #666; font-size: 14px; padding-bottom: 50px;">
-            <i class="fa fa-info-circle"></i> सूची में और दवाइयां जोड़ी जा रही हैं...
-        </div>
+
+    <div class="header">
+        <h2>S K Pharmacy Medicines</h2>
     </div>
-</body>
-</html>
-<body>
+
     <div class="product-card">
-        <div class="product-info">
-            <div class="product-image">
-                <img src="dabur-lal-tail.jpg" alt="Dabur Lal Tail">
-            </div>
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="dabur-lal-tail.jpg" alt="Dabur Lal Tail"></div>
             <div class="product-details">
                 <h3>Dabur Lal Tail (डाबर लाल तेल)</h3>
-                <p class="usage">बच्चों की मालिश के लिए उपयोगी</p>
-                <p class="net-quantity">100 ml</p>
                 <p class="price">₹150</p>
-                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Dabur Lal Tail (100ml) ऑर्डर करना है।" class="whatsapp-btn">
-                    WhatsApp पर ऑर्डर करें
-                </a>
+                <p class="description">बच्चों की मालिश के लिए (100 ml)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Dabur Lal Tail चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
             </div>
         </div>
     </div>
 
-    ... 
+    <div class="product-card">
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="dexorange.jpg" alt="Dexorange"></div>
+            <div class="product-details">
+                <h3>Dexorange Syrup (डेक्सऑरेंज)</h3>
+                <p class="price">₹197.80</p>
+                <p class="description">खून की कमी के लिए (200 ml)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Dexorange Syrup चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="hemo-forte.jpg" alt="Hemo Forte"></div>
+            <div class="product-details">
+                <h3>Hemo Forte (हिमो फोर्ट)</h3>
+                <p class="price">₹202</p>
+                <p class="description">रक्त की कमी दूर करने में सहायक (300 ml)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Hemo Forte Syrup चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="pantafast-dsr.jpg" alt="Pantafast-DSR"></div>
+            <div class="product-details">
+                <h3>Pantafast-DSR (पेन्टाफास्ट-डीएसआर)</h3>
+                <p class="price">₹168</p>
+                <p class="description">गैस और एसिडिटी के लिए (10 Capsules)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Pantafast-DSR चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="omefol-d.jpg" alt="Omefol-D"></div>
+            <div class="product-details">
+                <h3>Omefol-D (ओमीफोल-डी)</h3>
+                <p class="price">₹63</p>
+                <p class="description">गैस और जलन के लिए (15 Capsules)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Omefol-D चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-info" style="display: flex; align-items: center; width: 100%;">
+            <div class="product-image"><img src="meftagesic-p.jpg" alt="Meftagesic-P"></div>
+            <div class="product-details">
+                <h3>Meftagesic-P (मेफ्टाजेसिक-पी)</h3>
+                <p class="price">₹52</p>
+                <p class="description">बच्चों के बुखार और दर्द के लिए (60 ml)</p>
+                <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते, मुझे Meftagesic-P चाहिए।" class="whatsapp-btn">WhatsApp पर ऑर्डर करें</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-msg">
+        ● सूची में और दवाइयां जोड़ी जा रही हैं...
+    </div>
+
 </body>
+                                           </html>
+                                           
