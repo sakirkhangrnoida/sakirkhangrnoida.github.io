@@ -3,64 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S K Pharmacy - Dr. Sakir Khan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --amazon-blue: #131921; --amazon-yellow: #febd69; --green-whatsapp: #25d366; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f3f3f3; color: #333; }
-        
-        /* Header */
-        .header { background: var(--amazon-blue); color: white; padding: 12px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        
-        /* Scrolling News/Offer */
-        .news-ticker { background: #fff3cd; color: #856404; padding: 5px 0; font-size: 13px; font-weight: bold; overflow: hidden; }
-        .ticker-text { display: inline-block; white-space: nowrap; animation: scroll 15s linear infinite; }
-        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Search Bar */
-        .search-container { padding: 10px; background: var(--amazon-blue); }
-        .search-bar { display: flex; background: white; border-radius: 6px; overflow: hidden; }
-        .search-bar input { flex: 1; border: none; padding: 12px; outline: none; }
-        .search-bar button { background: var(--amazon-yellow); border: none; padding: 0 15px; cursor: pointer; }
+    <!-- SEO + Share Preview -->
+    <title>S K Pharmacy - असली दवाइयां घर बैठे मंगवाएं</title>
+    <meta name="description" content="S K Pharmacy से असली दवाइयां और हेल्थ प्रोडक्ट्स घर बैठे मंगवाएं। फ्री होम डिलीवरी उपलब्ध।">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="S K Pharmacy">
+    <meta property="og:description" content="असली दवाइयां घर बैठे मंगवाएं 💊">
+    <meta property="og:image" content="https://sakirkhangrnoida.github.io/S-K-pharmacy-/logo.png">
+    <meta property="og:url" content="https://sakirkhangrnoida.github.io/S-K-pharmacy-/">
+    <meta property="og:type" content="website">
+
+    <!-- WhatsApp Share -->
+    <meta property="og:site_name" content="S K Pharmacy">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="S K Pharmacy">
+    <meta name="twitter:description" content="असली दवाइयां घर बैठे मंगवाएं 💊">
+    <meta name="twitter:image" content="https://sakirkhangrnoida.github.io/S-K-pharmacy-/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --amazon-blue: #131921;
+            --amazon-yellow: #febd69;
+            --green-whatsapp: #25d366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: var(--amazon-blue);
+            color: white;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 8px;
+            background: white;
+        }
+
+        /* Scrolling Offer */
+        .news-ticker {
+            background: #fff3cd;
+            color: #856404;
+            padding: 5px 0;
+            font-size: 13px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Search */
+        .search-container {
+            padding: 10px;
+            background: var(--amazon-blue);
+        }
+
+        .search-bar {
+            display: flex;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: var(--amazon-yellow);
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+        }
 
         /* Categories */
-        .cat-row { display: flex; justify-content: space-around; background: white; padding: 15px 0; border-bottom: 1px solid #ddd; overflow-x: auto; }
-        .cat-item { text-align: center; min-width: 85px; text-decoration: none; color: inherit; }
-        .cat-icon { background: #f0f2f2; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; font-size: 22px; color: var(--amazon-blue); border: 1px solid #eee; }
-        .cat-item span { font-size: 12px; font-weight: bold; }
+        .cat-row {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto;
+        }
 
-        /* Main Banner */
-        .promo-card { background: linear-gradient(135deg, #1d2b64, #000000); color: white; padding: 25px 20px; border-radius: 15px; margin: 15px; text-align: center; position: relative; overflow: hidden; }
-        .promo-card::after { content: '20% OFF'; position: absolute; top: 10px; right: -20px; background: var(--amazon-yellow); color: black; padding: 5px 30px; transform: rotate(45deg); font-weight: bold; font-size: 12px; }
+        .cat-item {
+            text-align: center;
+            min-width: 85px;
+            text-decoration: none;
+            color: inherit;
+        }
 
-        /* Featured Products Area */
-        .section-title { padding: 0 15px; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        .product-scroll { display: flex; overflow-x: auto; padding: 10px 15px; gap: 15px; scrollbar-width: none; }
-        .mini-card { background: white; min-width: 140px; padding: 10px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
-        .mini-card img { width: 80px; height: 80px; border-radius: 8px; margin-bottom: 8px; }
-        .mini-card .name { font-size: 13px; font-weight: bold; height: 35px; overflow: hidden; }
-        .mini-card .price { color: #B12704; font-weight: bold; margin: 5px 0; }
-        .buy-now { background: var(--amazon-yellow); border: none; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; width: 100%; }
+        .cat-icon {
+            background: #f0f2f2;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+            font-size: 22px;
+            color: var(--amazon-blue);
+            border: 1px solid #eee;
+        }
 
-        /* Prescription Section */
-        .presc-card { background: #fff; margin: 15px; border-radius: 15px; padding: 20px; border: 2px dashed #e63946; text-align: center; }
-        .btn-wa { background: var(--green-whatsapp); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 10px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .cat-item span {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Banner */
+        .promo-card {
+            background: linear-gradient(135deg, #1d2b64, #000000);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            margin: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-card::after {
+            content: '20% OFF';
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            background: var(--amazon-yellow);
+            color: black;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Products */
+        .section-title {
+            padding: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-scroll {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 15px;
+            gap: 15px;
+            scrollbar-width: none;
+        }
+
+        .mini-card {
+            background: white;
+            min-width: 140px;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .mini-card .name {
+            font-size: 13px;
+            font-weight: bold;
+            height: 35px;
+            overflow: hidden;
+        }
+
+        .mini-card .price {
+            color: #B12704;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .buy-now {
+            background: var(--amazon-yellow);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Prescription */
+        .presc-card {
+            background: #fff;
+            margin: 15px;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px dashed #e63946;
+            text-align: center;
+        }
+
+        .btn-wa {
+            background: var(--green-whatsapp);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
 
         /* Floating Buttons */
-        .float-btn { position: fixed; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2000; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .wa-float { bottom: 20px; left: 20px; width: 60px; height: 60px; background: var(--green-whatsapp); font-size: 30px; }
-        .share-float { bottom: 20px; right: 20px; width: 60px; height: 60px; background: #007bff; font-size: 28px; }
+        .float-btn {
+            position: fixed;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 2000;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: none;
+        }
+
+        .wa-float {
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--green-whatsapp);
+            font-size: 30px;
+        }
+
+        .share-float {
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            font-size: 28px;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            padding-bottom: 100px;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="news-ticker">
-        <div class="ticker-text">✨ सिलापुर गांव में फ्री होम डिलीवरी! | 🚚 असली दवाइयां, सबसे सही दाम | 👨‍⚕️ डॉ. साकिर खान से मुफ्त परामर्श लें | 📞 अभी कॉल करें: 7983006957</div>
+        <div class="ticker-text">
+            ✨ सिलापुर गांव में फ्री होम डिलीवरी! | 🚚 असली दवाइयां, सबसे सही दाम |
+            👨‍⚕️ डॉ. साकिर खान से मुफ्त परामर्श लें | 📞 अभी कॉल करें: 7983006957
+        </div>
     </div>
 
     <header class="header">
-        <div style="font-size: 24px; font-weight: bold;">S K <span style="color:var(--amazon-yellow)">Pharmacy</span></div>
-        <div style="font-size: 11px; opacity: 0.9;"><i class="fa fa-user-md"></i> डॉ. साकिर खान (CMS-ED)</div>
+
+        <!-- Logo -->
+        <img src="logo.png" alt="S K Pharmacy Logo" class="logo-img">
+
+        <div style="font-size: 24px; font-weight: bold;">
+            S K <span style="color:var(--amazon-yellow)">Pharmacy</span>
+        </div>
+
+        <div style="font-size: 11px; opacity: 0.9;">
+            <i class="fa fa-user-md"></i> डॉ. साकिर खान (CMS-ED)
+        </div>
+
     </header>
 
     <div class="search-container">
@@ -71,67 +321,141 @@
     </div>
 
     <div class="cat-row">
-        <a href="medicines.html" class="cat-item"><div class="cat-icon">💊</div><span>Medicines</span></a>
-        <a href="skincare.html" class="cat-item"><div class="cat-icon">🌿</div><span>Skin Care</span></a>
-        <a href="babycare.html" class="cat-item"><div class="cat-icon">👶</div><span>Baby Care</span></a>
-        <a href="health.html" class="cat-item"><div class="cat-icon">❤️</div><span>Health</span></a>
+        <a href="medicines.html" class="cat-item">
+            <div class="cat-icon">💊</div>
+            <span>Medicines</span>
+        </a>
+
+        <a href="skincare.html" class="cat-item">
+            <div class="cat-icon">🌿</div>
+            <span>Skin Care</span>
+        </a>
+
+        <a href="babycare.html" class="cat-item">
+            <div class="cat-icon">👶</div>
+            <span>Baby Care</span>
+        </a>
+
+        <a href="health.html" class="cat-item">
+            <div class="cat-icon">❤️</div>
+            <span>Health</span>
+        </a>
     </div>
 
     <div class="promo-card">
         <h2 style="margin:0; font-size: 20px;">शुद्ध देसी जड़ी-बूटी तेल</h2>
-        <p style="margin:8px 0; font-size: 14px; opacity: 0.9;">दर्द और बालों की समस्याओं का रामबाण इलाज</p>
-        <a href="skincare.html" style="background:var(--amazon-yellow); color:black; padding:8px 20px; border-radius:5px; text-decoration:none; font-weight:bold; font-size:14px; display:inline-block;">अभी देखें</a>
+
+        <p style="margin:8px 0; font-size: 14px; opacity: 0.9;">
+            दर्द और बालों की समस्याओं का रामबाण इलाज
+        </p>
+
+        <a href="skincare.html"
+           style="background:var(--amazon-yellow); color:black; padding:8px 20px;
+           border-radius:5px; text-decoration:none; font-weight:bold; font-size:14px;
+           display:inline-block;">
+            अभी देखें
+        </a>
     </div>
 
     <div class="section-title">
         <span>खास आपके लिए</span>
-        <a href="skincare.html" style="font-size:12px; color:#007185; text-decoration:none;">सभी देखें</a>
+
+        <a href="skincare.html"
+           style="font-size:12px; color:#007185; text-decoration:none;">
+           सभी देखें
+        </a>
     </div>
 
     <div class="product-scroll">
+
         <div class="mini-card">
             <div style="font-size:40px;">💆‍♂️</div>
             <div class="name">Super Vasmol 33</div>
             <div class="price">₹50</div>
-            <button class="buy-now" onclick="location.href='https://wa.me/917983006957?text=Vasmol चाहिए'">आर्डर करें</button>
+
+            <button class="buy-now"
+            onclick="location.href='https://wa.me/917983006957?text=Vasmol चाहिए'">
+            आर्डर करें
+            </button>
         </div>
+
         <div class="mini-card">
             <div style="font-size:40px;">🌿</div>
             <div class="name">Herbal Hair Oil</div>
             <div class="price">₹120</div>
-            <button class="buy-now" onclick="location.href='https://wa.me/917983006957?text=Herbal Oil चाहिए'">आर्डर करें</button>
+
+            <button class="buy-now"
+            onclick="location.href='https://wa.me/917983006957?text=Herbal Oil चाहिए'">
+            आर्डर करें
+            </button>
         </div>
+
         <div class="mini-card">
             <div style="font-size:40px;">💊</div>
             <div class="name">Paracetamol</div>
             <div class="price">₹10</div>
-            <button class="buy-now" onclick="location.href='https://wa.me/917983006957?text=Paracetamol चाहिए'">आर्डर करें</button>
+
+            <button class="buy-now"
+            onclick="location.href='https://wa.me/917983006957?text=Paracetamol चाहिए'">
+            आर्डर करें
+            </button>
         </div>
+
     </div>
 
     <div class="presc-card">
-        <h3 style="margin:0; color:#e63946;"><i class="fa fa-file-medical"></i> पर्चा भेजें</h3>
-        <p style="font-size:13px; color:#666; margin:10px 0;">दवाइयों की लिस्ट या पर्चे की फोटो भेजें, हम घर पहुँचाएँगे।</p>
-        <a href="https://wa.me/917983006957" class="btn-wa"><i class="fab fa-whatsapp"></i> अभी फोटो भेजें</a>
+
+        <h3 style="margin:0; color:#e63946;">
+            <i class="fa fa-file-medical"></i> पर्चा भेजें
+        </h3>
+
+        <p style="font-size:13px; color:#666; margin:10px 0;">
+            दवाइयों की लिस्ट या पर्चे की फोटो भेजें, हम घर पहुँचाएँगे।
+        </p>
+
+        <a href="https://wa.me/917983006957" class="btn-wa">
+            <i class="fab fa-whatsapp"></i> अभी फोटो भेजें
+        </a>
+
     </div>
 
-    <div style="padding: 20px; text-align: center; color: #888; font-size: 12px; padding-bottom: 100px;">
-        <p>© 2026 S K Pharmacy - Dr. Sakir Khan<br>सिलापुर गांव, दनकौर, उत्तर प्रदेश</p>
-    </div>
+    <footer>
+        <p>
+            © 2026 S K Pharmacy - Dr. Sakir Khan<br>
+            सिलापुर गांव, दनकौर, उत्तर प्रदेश
+        </p>
+    </footer>
 
-    <a href="https://wa.me/917983006957" class="float-btn wa-float"><i class="fab fa-whatsapp"></i></a>
-    <button class="float-btn share-float" onclick="shareSite()"><i class="fa fa-share-alt"></i></button>
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/917983006957" class="float-btn wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button class="float-btn share-float" onclick="shareSite()">
+        <i class="fa fa-share-alt"></i>
+    </button>
 
     <script>
         function shareSite() {
+
             if (navigator.share) {
-                navigator.share({ title: 'S K Pharmacy', text: 'असली दवाइयां घर बैठे मंगवाएं', url: window.location.href });
+
+                navigator.share({
+                    title: 'S K Pharmacy',
+                    text: 'असली दवाइयां घर बैठे मंगवाएं 💊',
+                    url: 'https://sakirkhangrnoida.github.io/S-K-pharmacy-/'
+                });
+
             } else {
-                navigator.clipboard.writeText(window.location.href);
+
+                navigator.clipboard.writeText(
+                    'https://sakirkhangrnoida.github.io/S-K-pharmacy-/'
+                );
+
                 alert("लिंक कॉपी हो गया!");
             }
         }
     </script>
+
 </body>
     </html>
-    
