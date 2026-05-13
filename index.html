@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- Google AdSense Code सुरक्षित है -->
+    <!-- Google AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3497742039075939" crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
@@ -10,21 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f7f6; text-align: center; }
-        .header { background-color: #1a1e23; color: white; padding: 20px; }
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f7f6; padding-bottom: 80px; }
+        .ticker { background: #ff9800; color: white; padding: 5px; font-weight: bold; overflow: hidden; white-space: nowrap; }
+        .header { background-color: #1a1e23; color: white; padding: 20px; text-align: center; }
         .logo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff9800; }
-        
-        /* आपके पुराने गोल बटन का स्टाइल */
         .categories { display: flex; justify-content: space-around; padding: 20px; background: white; margin: 10px 0; }
-        .cat-item { text-decoration: none; color: #333; font-size: 14px; font-weight: bold; }
-        .icon-circle { width: 60px; height: 60px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; font-size: 24px; color: #e91e63; }
-
-        .about-section { background: white; margin: 15px; padding: 20px; border-radius: 10px; text-align: left; }
-        .footer { background: #1a1e23; color: white; padding: 20px; font-size: 14px; }
-        .footer a { color: #ff9800; text-decoration: none; margin: 0 10px; }
+        .cat-item { text-decoration: none; color: #333; font-size: 14px; font-weight: bold; text-align: center; }
+        .icon-circle { width: 60px; height: 60px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; font-size: 24px; }
+        .about-section { background: white; margin: 15px; padding: 20px; border-radius: 10px; }
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 100; text-decoration: none; }
+        .share-float { position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; border: none; z-index: 100; }
     </style>
 </head>
 <body>
+
+    <!-- चलती हुई लाइन -->
+    <marquee class="ticker">होम डिलीवरी! | 🚚 असली दवाइयां, सबसे सही दाम | 👨‍⚕️ डॉ. साकिर खान (CMS-ED)</marquee>
 
     <div class="header">
         <img src="logo_sk.png" alt="S K Pharmacy" class="logo">
@@ -32,23 +33,18 @@
         <p>Professional Healthcare & Medicine</p>
     </div>
 
-    <!-- आपके पुराने गोल बटन यहाँ वापस आ गए हैं -->
     <div class="categories">
         <a href="medicines.html" class="cat-item">
-            <div class="icon-circle" style="color: #f44336;"><i class="fas fa-capsules"></i></div>
-            Medicines
+            <div class="icon-circle" style="color: #f44336;"><i class="fas fa-capsules"></i></div>Medicines
         </a>
         <a href="skincare.html" class="cat-item">
-            <div class="icon-circle" style="color: #4caf50;"><i class="fas fa-leaf"></i></div>
-            Skin Care
+            <div class="icon-circle" style="color: #4caf50;"><i class="fas fa-leaf"></i></div>Skin Care
         </a>
         <a href="babycare.html" class="cat-item">
-            <div class="icon-circle" style="color: #ffeb3b;"><i class="fas fa-baby"></i></div>
-            Baby Care
+            <div class="icon-circle" style="color: #ffeb3b;"><i class="fas fa-baby"></i></div>Baby Care
         </a>
         <a href="health.html" class="cat-item">
-            <div class="icon-circle" style="color: #e91e63;"><i class="fas fa-heart"></i></div>
-            Health
+            <div class="icon-circle" style="color: #e91e63;"><i class="fas fa-heart"></i></div>Health
         </a>
     </div>
 
@@ -57,14 +53,8 @@
         <p>S K Pharmacy जिला गौतम बुद्ध नगर का एक विश्वसनीय मेडिकल स्टोर है। हमारे संचालक <b>डॉ. साकिर खान (CMS-ED)</b> अनुभवी हैं।</p>
     </div>
 
-    <div class="footer">
-        <p><b>S K Pharmacy</b><br>संचालक: डॉ. साकिर खान<br>संपर्क: +91 7983006957</p>
-        <hr>
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms & Conditions</a> | 
-        <a href="contact.html">Contact Us</a>
-        <p>© 2026 सर्वाधिकार सुरक्षित।</p>
-    </div>
+    <a href="https://wa.me/917983006957" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <button class="share-float" onclick="navigator.share({title: 'S K Pharmacy', url: window.location.href})"><i class="fas fa-share-alt"></i></button>
 
 </body>
 </html>
