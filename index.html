@@ -1,283 +1,70 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- Google AdSense Code -->
+    <!-- Google AdSense Code सुरक्षित है -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3497742039075939" crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>S K Pharmacy - असली दवाइयां और स्वास्थ्य परामर्श</title>
-    <meta name="description" content="S K Pharmacy: डॉ. साकिर खान द्वारा संचालित। असली दवाइयां, आयुर्वेदिक तेल और हेल्थ प्रोडक्ट्स की फ्री होम डिलीवरी।">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <title>S K Pharmacy - Dr. Sakir Khan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    
     <style>
-        :root {
-            --amazon-blue: #131921;
-            --amazon-yellow: #febd69;
-            --green-whatsapp: #25d366;
-            --light-bg: #f6f6f6;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f7f6; text-align: center; }
+        .header { background-color: #1a1e23; color: white; padding: 20px; }
+        .logo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff9800; }
+        
+        /* आपके पुराने गोल बटन का स्टाइल */
+        .categories { display: flex; justify-content: space-around; padding: 20px; background: white; margin: 10px 0; }
+        .cat-item { text-decoration: none; color: #333; font-size: 14px; font-weight: bold; }
+        .icon-circle { width: 60px; height: 60px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; font-size: 24px; color: #e91e63; }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            margin: 0;
-            background-color: var(--light-bg);
-            color: #333;
-            line-height: 1.5;
-        }
-
-        /* Header Section */
-        .header {
-            background: var(--amazon-blue);
-            color: white;
-            padding: 15px 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid white;
-            background: white;
-            margin-bottom: 5px;
-        }
-
-        .news-ticker {
-            background: #fff3cd;
-            color: #856404;
-            padding: 6px 0;
-            font-size: 13px;
-            font-weight: bold;
-            overflow: hidden;
-        }
-
-        .ticker-text {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll 20s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Content Sections */
-        .container { padding: 15px; }
-
-        .info-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .info-card h2 {
-            color: var(--amazon-blue);
-            font-size: 18px;
-            margin-top: 0;
-            border-bottom: 2px solid var(--amazon-yellow);
-            display: inline-block;
-        }
-
-        .promo-banner {
-            background: linear-gradient(135deg, #1d2b64, #000);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        /* Product Grid */
-        .product-scroll {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding-bottom: 10px;
-            scrollbar-width: none;
-        }
-
-        .product-card {
-            background: white;
-            min-width: 150px;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .buy-btn {
-            background: var(--amazon-yellow);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            width: 100%;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        /* AdSense Friendly Pages Section */
-        .policy-links {
-            background: #eee;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-
-        .policy-links a {
-            text-decoration: none;
-            color: #007185;
-            margin: 0 10px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        footer {
-            background: var(--amazon-blue);
-            color: #ccc;
-            padding: 30px 15px 100px;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* UI Elements */
-        .wa-btn {
-            background: var(--green-whatsapp);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .float-btn {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 2000;
-        }
+        .about-section { background: white; margin: 15px; padding: 20px; border-radius: 10px; text-align: left; }
+        .footer { background: #1a1e23; color: white; padding: 20px; font-size: 14px; }
+        .footer a { color: #ff9800; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
-
 <body>
 
-    <div class="news-ticker">
-        <div class="ticker-text">
-            🚀 सिलापुर गांव में फ्री होम डिलीवरी! | 🩺 डॉ. साकिर खान (CMS-ED) द्वारा प्रमाणित सेवाएं | 📞 ऑर्डर के लिए कॉल: 7983006957
-        </div>
+    <div class="header">
+        <img src="logo_sk.png" alt="S K Pharmacy" class="logo">
+        <h1>S K Pharmacy</h1>
+        <p>Professional Healthcare & Medicine</p>
     </div>
 
-    <header class="header">
-        <img src="logo.png" alt="S K Pharmacy Logo" class="logo-img">
-        <div style="font-size: 24px; font-weight: bold;">S K <span style="color:var(--amazon-yellow)">Pharmacy</span></div>
-        <div style="font-size: 12px; opacity: 0.9;">Professional Healthcare & Medicine</div>
-    </header>
-
-    <div class="container">
-        
-        <!-- About Section (Google loves this) -->
-        <div class="info-card">
-            <h2>हमारे बारे में (About Us)</h2>
-            <p>S K Pharmacy सिलापुर गांव, दनकौर का एक विश्वसनीय मेडिकल स्टोर है। हमारे संचालक <b>डॉ. साकिर खान (CMS-ED)</b> स्वास्थ्य के क्षेत्र में अनुभवी हैं। हम 100% शुद्ध और असली दवाइयां, बेबी केयर और आयुर्वेदिक हेल्थ प्रोडक्ट्स सीधे आपके घर तक पहुँचाते हैं।</p>
-        </div>
-
-        <div class="promo-banner">
-            <h2 style="margin:0;">शुद्ध आयुर्वेदिक तेल</h2>
-            <p>प्राकृतिक जड़ी-बूटियों से निर्मित तेल, जो बालों और जोड़ों के दर्द में असरदार है।</p>
-            <a href="https://wa.me/917983006957" class="buy-btn" style="text-decoration:none; display:inline-block; width:auto; padding:10px 25px;">अभी खरीदें</a>
-        </div>
-
-        <!-- Medicine Section -->
-        <div class="info-card">
-            <h2>लोकप्रिय प्रोडक्ट्स</h2>
-            <div class="product-scroll">
-                <div class="product-card">
-                    <div style="font-size:35px;">💆‍♂️</div>
-                    <div style="font-weight:bold; margin:5px 0;">Super Vasmol</div>
-                    <div style="color:#B12704;">₹50</div>
-                    <button class="buy-btn" onclick="location.href='https://wa.me/917983006957?text=Vasmol'">Order</button>
-                </div>
-                <div class="product-card">
-                    <div style="font-size:35px;">🌿</div>
-                    <div style="font-weight:bold; margin:5px 0;">Herbal Oil</div>
-                    <div style="color:#B12704;">₹120</div>
-                    <button class="buy-btn" onclick="location.href='https://wa.me/917983006957?text=HerbalOil'">Order</button>
-                </div>
-                <div class="product-card">
-                    <div style="font-size:35px;">💊</div>
-                    <div style="font-weight:bold; margin:5px 0;">Pain Relief</div>
-                    <div style="color:#B12704;">₹30</div>
-                    <button class="buy-btn" onclick="location.href='https://wa.me/917983006957?text=Medicine'">Order</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="info-card" style="text-align:center; border: 2px dashed #e63946;">
-            <h2 style="border:none; color:#e63946;">पर्चा अपलोड करें</h2>
-            <p style="font-size:14px;">अपनी दवाइयों की पर्ची व्हाट्सएप करें, हम होम डिलीवरी करेंगे।</p>
-            <a href="https://wa.me/917983006957" class="wa-btn">
-                <i class="fab fa-whatsapp"></i> व्हाट्सएप पर भेजें
-            </a>
-        </div>
-
-        <!-- AdSense Required Links -->
-        <div class="policy-links">
-            <p style="font-weight:bold; margin-bottom:10px;">महत्वपूर्ण लिंक:</p>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms & Conditions</a> | 
-            <a href="#">Contact Us</a> | 
-            <a href="#">Disclaimer</a>
-        </div>
-
+    <!-- आपके पुराने गोल बटन यहाँ वापस आ गए हैं -->
+    <div class="categories">
+        <a href="medicines.html" class="cat-item">
+            <div class="icon-circle" style="color: #f44336;"><i class="fas fa-capsules"></i></div>
+            Medicines
+        </a>
+        <a href="skincare.html" class="cat-item">
+            <div class="icon-circle" style="color: #4caf50;"><i class="fas fa-leaf"></i></div>
+            Skin Care
+        </a>
+        <a href="babycare.html" class="cat-item">
+            <div class="icon-circle" style="color: #ffeb3b;"><i class="fas fa-baby"></i></div>
+            Baby Care
+        </a>
+        <a href="health.html" class="cat-item">
+            <div class="icon-circle" style="color: #e91e63;"><i class="fas fa-heart"></i></div>
+            Health
+        </a>
     </div>
 
-    <footer>
-        <p><b>S K Pharmacy</b><br>
-        संचालक: डॉ. साकिर खान (स्वास्थ्य सेवा विशेषज्ञ)<br>
-        स्थान: सिलापुर गांव, दनकौर, गौतम बुद्ध नगर, यूपी<br>
-        संपर्क: +91 7983006957<br><br>
-        © 2026 सर्वाधिकार सुरक्षित।</p>
-    </footer>
+    <div class="about-section">
+        <h3>हमारे बारे में (About Us)</h3>
+        <p>S K Pharmacy जिला गौतम बुद्ध नगर का एक विश्वसनीय मेडिकल स्टोर है। हमारे संचालक <b>डॉ. साकिर खान (CMS-ED)</b> अनुभवी हैं।</p>
+    </div>
 
-    <!-- Floating Buttons -->
-    <a href="https://wa.me/917983006957" class="float-btn" style="left:20px; bottom:20px; background:var(--green-whatsapp);">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <button onclick="share()" class="float-btn" style="right:20px; bottom:20px; background:#007bff; border:none;">
-        <i class="fa fa-share-alt"></i>
-    </button>
-
-    <script>
-        function share() {
-            if (navigator.share) {
-                navigator.share({ title: 'S K Pharmacy', url: window.location.href });
-            } else {
-                alert("Link: " + window.location.href);
-            }
-        }
-    </script>
+    <div class="footer">
+        <p><b>S K Pharmacy</b><br>संचालक: डॉ. साकिर खान<br>संपर्क: +91 7983006957</p>
+        <hr>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms.html">Terms & Conditions</a> | 
+        <a href="contact.html">Contact Us</a>
+        <p>© 2026 सर्वाधिकार सुरक्षित।</p>
+    </div>
 
 </body>
 </html>
