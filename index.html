@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- Google AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3497742039075939" crossorigin="anonymous"></script>
-
-<meta name="google-site-verification" content="4-4U09lYkjvRPl5UHdOKRAINLMZ_VDnd8ed1cVagnSo" />
-    
+    <meta name="google-site-verification" content="4-4UD91YkjvRP15UHdDKRAlNLMZ_VDnd8edfcVagnSo" />
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,49 +11,78 @@
     
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f7f6; text-align: center; padding-bottom: 80px; }
-        .ticker { background: #ff9800; color: white; padding: 8px; font-weight: bold; overflow: hidden; }
-        .header { background-color: #1a1e23; color: white; padding: 20px; }
-        .logo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff9800; margin-bottom: 10px; }
+        .ticker { background: #ff9800; color: white; padding: 8px; font-weight: bold; overflow: hidden; margin: 0; }
+        .header { background-color: #1a1e23; color: white; padding: 25px 20px; }
         
-        .categories { display: flex; justify-content: space-around; padding: 20px; background: white; margin: 10px 0; }
+        /* आपकी गोल फोटो की स्टाइलिंग */
+        .logo { width: 140px; height: 140px; border-radius: 50%; border: 4px solid orange; object-fit: cover; margin-bottom: 15px; display: inline-block; }
+        
+        /* सोशल लिंक्स बटन्स */
+        .social-links-container { display: flex; justify-content: center; gap: 10px; background: #1a1e23; padding-bottom: 15px; flex-wrap: wrap; }
+        .social-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 12px; font-size: 13px; font-weight: bold; color: white; text-decoration: none; border-radius: 20px; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .btn-maps { background-color: #4285F4; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-fb { background-color: #1877F2; }
+
+        .categories { display: flex; justify-content: space-around; padding: 20px; background: white; margin: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .cat-item { text-decoration: none; color: #333; font-size: 13px; font-weight: bold; }
-        .icon-circle { width: 60px; height: 60px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; font-size: 24px; }
-
-        .about-section { background: white; margin: 15px; padding: 20px; border-radius: 10px; text-align: left; }
+        .icon-circle { width: 60px; height: 60px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px auto; font-size: 24px; }
         
-        .footer { background: #1a1e23; color: white; padding: 20px; font-size: 14px; margin-top: 20px; }
+        /* प्रोडक्ट ग्रिड और कार्ड की स्टाइल */
+        .product-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 15px; }
+        .product-card { background-color: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); width: 100%; max-width: 300px; padding: 15px; text-align: center; border: 1px solid #e2e8f0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-image { max-width: 100%; height: 200px; object-fit: contain; border-radius: 10px; margin: 0 auto; }
+        .product-title { font-size: 18px; color: #333; margin: 12px 0 4px 0; font-weight: bold; text-align: center; }
+        .product-subtitle { font-size: 12px; color: #666; margin-bottom: 12px; height: 32px; overflow: hidden; }
+        .price-container { margin: 10px 0; }
+        .original-price { text-decoration: line-through; color: #888; font-size: 14px; margin-right: 8px; }
+        .offer-price { color: #d9534f; font-size: 19px; font-weight: bold; }
+        
+        .buy-button { display: inline-flex; align-items: center; justify-content: center; background-color: #25D366; color: white; text-decoration: none; padding: 10px 15px; font-size: 15px; font-weight: bold; border-radius: 25px; width: 90%; margin: 0 auto; box-shadow: 0 3px 8px rgba(37, 211, 102, 0.2); transition: 0.3s; }
+        .buy-button:hover { background-color: #128C7E; }
+        .buy-button i { margin-right: 6px; font-size: 16px; }
+
+        .info-section { background: white; margin: 15px; padding: 20px; border-radius: 10px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .info-section ul { padding-left: 20px; }
+        .info-section li { margin-bottom: 10px; font-size: 15px; color: #333; }
+        .highlight-box { background-color: #fff5eb; padding: 15px; border-radius: 8px; border: 1px dashed #ff9800; text-align: center; font-style: italic; margin-top: 15px; font-size: 16px; color: #333; }
+        
+        .footer { background: #1a1e23; color: white; padding: 25px 20px; font-size: 14px; margin-top: 20px; }
         .footer a { color: #ff9800; text-decoration: none; margin: 0 10px; }
-
-        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 100; text-decoration: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
-        .share-float { position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; border: none; z-index: 100; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
-
-        .logo{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid orange;
-        }
+        .footer p { margin: 5px 0; }
+        
+        .share-float { position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: none; cursor: pointer; }
     </style>
-</head> 
+</head>
 <body>
 
-    <!-- ऊपर चलती हुई लाइन -->
-    <marquee class="ticker">होम डिलीवरी! | 🚚 असली दवाइयां, सबसे सही दाम | 👨‍⚕️ डॉ. साकिर खान (CMS-ED) | संपर्क: 7983006957</marquee>
+    <marquee class="ticker">होम डिलीवरी! | 🚚 सबसे दवाइयां, सबसे सही दाम | 👨‍⚕️ डॉ. साकिर खान (CMS-ED) | संपर्क: 7983006957</marquee>
 
     <div class="header">
-        <img src="logo.png" alt="S K Pharmacy"class="logo">
-        <h1>S K Pharmacy</h1>
-        <p>Professional Healthcare & Medicine</p>
+        <img src="logo.png" alt="Dr. Sakir Khan - S K Pharmacy" class="logo">
+        <h1 style="margin: 5px 0;">S K Pharmacy</h1>
+        <p style="margin: 5px 0; color: #ccc;">Professional Healthcare & Medicine</p>
     </div>
-<div style="padding: 10px 15px; background: #f4f7f6;">
-    <input type="text" id="myInput" onkeyup="searchMedicine()" placeholder="दवाई या बीमारी खोजें..." 
-    style="width:100%; padding:12px; border:2px solid #ff9800; border-radius:25px; outline:none; box-sizing: border-box; font-size: 16px; shadow: 0 2px 4px rgba(0,0,0,0.1);">
-</div>
+
+    <div class="social-links-container">
+        <a href="https://maps.app.goo.gl/CWkD4qPoGLSwkQ8cA" target="_blank" class="social-btn btn-maps">
+            <i class="fas fa-map-marker-alt"></i> Live Location
+        </a>
+        <a href="https://www.instagram.com/sakirkhangrnoida?igsh=MnVzemt4ZjRhcTBz" target="_blank" class="social-btn btn-insta">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/share/18kLQqxfc7/" target="_blank" class="social-btn btn-fb">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+    </div>
+
+    <div style="padding: 15px; background: #f4f7f6;">
+        <input type="text" id="myInput" onkeyup="searchMedicine()" placeholder="दवाई या बीमारी खोजें..." style="width:100%; padding:12px 20px; border:2px solid #ff9800; border-radius:25px; outline:none; box-sizing: border-box; font-size: 16px;">
+    </div>
 
     <div class="categories">
         <a href="medicines.html" class="cat-item">
-            <div class="icon-circle" style="color: #f44336;"><i class="fas fa-capsules"></i></div>Medicines
+            <div class="icon-circle" style="color: #ff4436;"><i class="fas fa-capsules"></i></div>Medicines
         </a>
         <a href="skincare.html" class="cat-item">
             <div class="icon-circle" style="color: #4caf50;"><i class="fas fa-leaf"></i></div>Skin Care
@@ -68,149 +94,194 @@
             <div class="icon-circle" style="color: #e91e63;"><i class="fas fa-heart"></i></div>Health
         </a>
     </div>
-</script>
-<!-- S K Pharmacy Section -->
-<section id="pharmacy-section" style="padding: 40px; background-color: #f9f9f9; text-align: center; border-radius: 10px; margin: 20px;">
-    <h2 style="color: #008080;">S K Pharmacy</h2>
-    <p style="font-size: 1.2em; color: #555;">विश्वास शुद्धता का, वादा सेहत का।</p>
-    
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
-        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 250px;">
-            <h4 style="color: #008080;">ब्रांडेड दवाएं</h4>
-            <p>सभी प्रमुख कंपनियों की दवाएं उचित मूल्य पर उपलब्ध।</p>
+
+    <h2 style="color: #1a1e23; margin-top: 20px;">हमारे प्रमुख प्रोडक्ट्स</h2>
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="24664.png" alt="Garnier Men AcnoFight" class="product-image">
+            <div class="product-title">Garnier Men AcnoFight</div>
+            <div class="product-subtitle">Anti-Pimple Face Wash (Fights 99.9% Germs)</div>
+            <div class="price-container">
+                <span class="original-price">₹180</span><span class="offer-price">₹130</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Garnier%20Men%20AcnoFight%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
         </div>
-        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 250px;">
-            <h4 style="color: #008080;">आयुर्वेदिक उत्पाद</h4>
-            <p>प्राकृतिक और हर्बल दर्द निवारक तेल और दवाएं।</p>
+
+        <div class="product-card">
+            <img src="24661.png" alt="Garnier Men TurboBright" class="product-image">
+            <div class="product-title">Garnier Men TurboBright</div>
+            <div class="product-subtitle">Anti-Pollution Double Action Face Wash</div>
+            <div class="price-container">
+                <span class="original-price">₹189</span><span class="offer-price">₹124</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Garnier%20Men%20TurboBright%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
         </div>
-        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 250px;">
-            <h4 style="color: #008080;">होम डिलीवरी</h4>
-            <p>दवाओं की लिस्ट भेजें और घर बैठे ऑर्डर प्राप्त करें।</p>
+
+        <div class="product-card">
+            <img src="24663.png" alt="Garnier Men OilClear" class="product-image">
+            <div class="product-title">Garnier Men OilClear</div>
+            <div class="product-subtitle">Deep Cleansing Icy Face Wash - Clay D-Tox</div>
+            <div class="price-container">
+                <span class="original-price">₹180</span><span class="offer-price">₹125</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Garnier%20Men%20OilClear%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24662.png" alt="Nivea Men Charcoal" class="product-image">
+            <div class="product-title">Nivea Men Charcoal</div>
+            <div class="product-subtitle">All-in-1 Face Wash - 3D Actions Bright Radiant Skin</div>
+            <div class="price-container">
+                <span class="original-price">₹210</span><span class="offer-price">₹150</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Nivea%20Men%20Charcoal%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24652.png" alt="Garnier Bright Complete" class="product-image">
+            <div class="product-title">Garnier Bright Complete</div>
+            <div class="product-subtitle">Vitamin C Face Wash - Clears Dullness</div>
+            <div class="price-container">
+                <span class="original-price">₹160</span><span class="offer-price">₹115</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Garnier%20Bright%20Complete%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24650.png" alt="Himalaya Neem Face Wash" class="product-image">
+            <div class="product-title">Himalaya Purifying Neem</div>
+            <div class="product-subtitle">Clears & Prevents Pimples - Goodness of Neem</div>
+            <div class="price-container">
+                <span class="original-price">₹150</span><span class="offer-price">₹110</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Himalaya%20Neem%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24649.png" alt="Pond's Bright Miracle" class="product-image">
+            <div class="product-title">Pond's Bright Miracle</div>
+            <div class="product-subtitle">Detox Face Wash with Activated Charcoal</div>
+            <div class="price-container">
+                <span class="original-price">₹199</span><span class="offer-price">₹140</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Pond's%20Detox%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24651.png" alt="Glow & Lovely Face Wash" class="product-image">
+            <div class="product-title">Glow & Lovely Bright Glow</div>
+            <div class="product-subtitle">Face Wash with 3X Multi Vitamins</div>
+            <div class="price-container">
+                <span class="original-price">₹140</span><span class="offer-price">₹98</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Glow%20and%20Lovely%20Face%20Wash%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24648.png" alt="Everyuth Walnut Scrub" class="product-image">
+            <div class="product-title">Everyuth Walnut Scrub</div>
+            <div class="product-subtitle">Exfoliating Walnut Scrub - Removes Blackheads</div>
+            <div class="price-container">
+                <span class="original-price">₹150</span><span class="offer-price">₹110</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Everyuth%20Walnut%20Scrub%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="24642.png" alt="Dabur Lal Tail" class="product-image">
+            <div class="product-title">Dabur Lal Tail</div>
+            <div class="product-subtitle">Ayurvedic Baby Massage Oil (Clinically Proven 2X Growth)</div>
+            <div class="price-container">
+                <span class="original-price">₹220</span><span class="offer-price">₹175</span>
+            </div>
+            <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Dabur%20Lal%20Tail%20ऑर्डर%20करना%20है।" target="_blank" class="buy-button">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+    <div class="info-section">
+        <h3 style="color: #d9534f; margin-top: 0;">गर्मियों में लू (Heat Stroke) से बचने के आसान घरेलू उपाय</h3>
+        <p style="font-size: 14px; color: #666; text-align: left;">आजकल बढ़ती गर्मी और चिलचिलाती धूप की वजह से लू लगने का खतरा बढ़ गया है। लू लगने पर शरीर में पानी की कमी हो जाती है और बुखार, सिरदर्द या कमजोरी महसूस होने लगती है। आइए जानते हैं इससे बचने के कुछ आसान तरीके:</p>
+        <ul style="text-align: left; padding-left: 20px;">
+            <li><strong>भरपूर पानी पीएं:</strong> दिनभर में कम से कम 8-10 गिलास पानी पीएं। नींबू पानी और ओआरएस (ORS) का घोल लेते रहें।</li>
+            <li><strong>खाली पेट बाहर न निकलें:</strong> धूप में निकलने से पहले कुछ न कुछ जरूर खाएं।</li>
+            <li><strong>सूती कपड़ों का प्रयोग:</strong> हल्के रंग के और ढीले सूती कपड़े पहनें और सिर को ढक कर रखें।</li>
+            <li><strong>देशी नुस्खे:</strong> कच्चे आम का पन्ना और छाछ लू से बचाने में बहुत मददगार होते हैं।</li>
+            <li><strong>डॉक्टर की सलाह:</strong> अगर ज्यादा कमजोरी लगे, तो तुरंत डॉक्टर या फार्मासिस्ट से संपर्क करें।</li>
+        </ul>
+        
+        <div class="highlight-box">
+            <strong>S K Pharmacy</strong> पर सभी प्रकार की एलोपैथिक, होम्योपैथिक एवं आयुर्वेदिक दवाइयां उचित मूल्य पर उपलब्ध हैं।<br>
+            <span style="font-weight: bold; display: block; margin-top: 8px; color: #1a1e23;">प्रो. डॉ. साकिर खान (CMS-ED)</span>
         </div>
     </div>
 
-    <!-- WhatsApp  7983006957 9258751739  Button -->
-    <div style="margin-top: 40px;">
-        <a href="https://wa.me/917983006957 " target="_blank" style="background-color: #25D366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em;">
-            WhatsApp पर दवाएं ऑर्डर करें
-        </a>
-    </div>
-</section>
-    
-<!-- यहां से product code जोड़ना है -->
-
-<section class="products">
-
-<div class="product-card">
-    <img src="medicine1.jpg" alt="Paracetamol">
-    <h3>Paracetamol Tablet</h3>
-    <p>बुखार और दर्द में उपयोगी</p>
-
-    <a href="https://wa.me/917983006957">
-        <button>Order Now</button>
-    </a>
-</div>
-
-</section>
-
-<style>
-.products{
-display:grid;
-gap:20px;
-padding:20px;
-}
-
-.product-card{
-background:#fff;
-padding:15px;
-border-radius:15px;
-text-align:center;
-}
-
-.product-card img{
-width:100%;
-border-radius:10px;
-}
-
-.product-card button{
-background:#ff9800;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:8px;
-}
-</style>
-
-<!-- यहां तक -->
-
-</body>
-</html>
-    
-    
-    <div class="about-section">
-        <h3>हमारे बारे में (About Us)</h3>
-        <p>S K Pharmacy जिला गौतम बुद्ध नगर का एक विश्वसनीय मेडिकल स्टोर है। हमारे संचालक <b>डॉ. साकिर खान (CMS-ED)</b> अनुभवी हैं। हम 100% शुद्ध और असली दवाइयां आपके घर तक पहुँचाते हैं।</p>
-    </div>
-<section style="background: white; margin: 20px; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-family: sans-serif;">
-    <h2 style="color: #1a1e23; border-left: 5px solid #ff9800; padding-left: 10px;">गर्मियों में लू (Heat Stroke) से बचने के आसान घरेलू उपाय</h2>
-    
-    <p style="line-height: 1.6; color: #333;">आजकल बढ़ती गर्मी और चिलचिलाती धूप की वजह से लू लगने का खतरा बढ़ गया है। लू लगने पर शरीर में पानी की कमी हो जाती है और बुखार, सिरदर्द या कमजोरी महसूस होने लगती है। आइए जानते हैं इससे बचने के कुछ आसान तरीके:</p>
-    
-    <ul style="line-height: 1.8; color: #333;">
-        <li><strong>भरपूर पानी पीएं:</strong> दिनभर में कम से कम 8-10 गिलास पानी पीएं। नींबू पानी और ओआरएस (ORS) का घोल लेते रहें।</li>
-        <li><strong>खाली पेट बाहर न निकलें:</strong> धूप में निकलने से पहले कुछ न कुछ जरूर खाएं।</li>
-        <li><strong>सूती कपड़ों का प्रयोग:</strong> हल्के रंग के और ढीले सूती कपड़े पहनें और सिर को ढक कर रखें।</li>
-        <li><strong>देशी नुस्खे:</strong> कच्चे आम का पन्ना और छाछ लू से बचाने में बहुत मददगार होते हैं।</li>
-        <li><strong>डॉक्टर की सलाह:</strong> अगर ज्यादा कमजोरी लगे, तो तुरंत डॉक्टर या फार्मासिस्ट से संपर्क करें।</li>
-    </ul>
-    
-    <p style="background: #fdf2e9; padding: 10px; border-radius: 5px; font-style: italic;">
-        <strong>S K Pharmacy</strong> आपकी सेहत का ख्याल रखता है। हमारे यहाँ सभी प्रकार की असली दवाइयां उचित दाम पर उपलब्ध हैं।
-    
-    </p>
-<
-    /section>
-    <!-- व्हाट्सएप और शेयर बटन -->
-    <a href="https://wa.me/917983006957"9258751739"class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <button class="share-float" onclick="shareSite()"><i class="fas fa-share-alt"></i></button>
-
-    <!-- नीचे एडसेंस के लिए प्राइवेसी पॉलिसी लिंक -->
     <div class="footer">
-        <p><b>S K Pharmacy</b><br>संचालक: डॉ. साकिर खान<br>संपर्क: +91 7983006957 9258751739</p>
-        <hr style="border: 0.5px solid #333;">
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms & Conditions</a> | 
-        <a href="contact.html">Contact Us</a>
-        <p style="font-size: 12px; margin-top: 10px; color: #888;">© 2026 S K Pharmacy. All Rights Reserved.</p>
+        <h3>S K Pharmacy</h3>
+        <p><strong>संचालक:</strong> डॉ. साकिर खान</p>
+        <p><strong>संपर्क:</strong> +91 7983006957, 9258751739</p>
+        <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms & Conditions</a> | 
+            <a href="contact.html">Contact Us</a>
+        </p>
+        <p style="margin-top: 15px; color: #777;">© 2026 S K Pharmacy. All Rights Reserved.</p>
     </div>
+
+    <button class="share-float" onclick="sharePage()">
+        <i class="fas fa-share-alt"></i>
+    </button>
 
     <script>
-        function shareSite() {
+        function searchMedicine() {
+            let input = document.getElementById('myInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByClassName('product-title')[0].innerText.toLowerCase();
+                let subtitle = cards[i].getElementsByClassName('product-subtitle')[0].innerText.toLowerCase();
+                if (title.includes(input) || subtitle.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function sharePage() {
             if (navigator.share) {
-                navigator.share({ title: 'S K Pharmacy', url: window.location.href });
+                navigator.share({
+                    title: 'S K Pharmacy',
+                    url: window.location.href
+                }).catch(console.error);
             } else {
-                alert("Link: " + window.location.href);
+                alert("लिंक कॉपी कर लिया गया है: " + window.location.href);
             }
         }
     </script>
-<script>
-function searchMedicine() {
-  var input = document.getElementById("myInput");
-  var filter = input.value.toUpperCase();
-  
-  // यह आपके पेज के सभी 'section', 'about-section' और 'cat-item' को ढूंढेगा
-  var items = document.querySelectorAll('section, .about-section, .cat-item');
 
-  items.forEach(function(item) {
-    var text = item.textContent || item.innerText;
-    if (text.toUpperCase().indexOf(filter) > -1) {
-      item.style.display = ""; // मैच होने पर दिखाओ
-    } else {
-      item.style.display = "none"; // मैच न होने पर छिपा दो
-    }
-  });
-}
-</script>   
-  
 </body>
-</html>
+                </html>
+    
