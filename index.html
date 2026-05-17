@@ -111,24 +111,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <div style="padding: 15px; background: #f4f7f6;">
         <input type="text" id="myInput" onkeyup="searchMedicine()" placeholder="दवाई या बीमारी खोजें..." style="width:100%; padding:12px 20px; border:2px solid #ff9800; border-radius:25px; outline:none; box-sizing: border-box; font-size: 16px;">
-  <div style="text-align: center; margin: 12px auto; padding: 10px; background: #1c1e21; border: 2px solid #ff9900; border-radius: 12px; max-width: 95%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); clear: both;">
+  <div style="text-align: center; margin: 10px auto; padding: 8px; background: #1c1e21; border: 2px solid #ff9900; border-radius: 12px; max-width: 95%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); clear: both;">
     
-    <p style="color: #ffffff; font-size: 13px; margin: 4px 0 8px 0; font-weight: bold;">✨ S K Pharmacy सपोर्ट बॉक्स ✨</p>
+    <p style="color: #ffffff; font-size: 13px; margin: 3px 0 6px 0; font-weight: bold;">✨ S K Pharmacy सपोर्ट बॉक्स ✨</p>
     
-    <a href="https://www.instagram.com/sakirkhangrnoida" target="_blank" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; margin: 3px; display: inline-block; font-size: 13px;">
-        📸 Instagram Follow
+    <a href="https://www.instagram.com/sakirkhangrnoida" target="_blank" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 6px 12px; border-radius: 15px; text-decoration: none; font-weight: bold; margin: 2px; display: inline-block; font-size: 12px;">
+        📸 Instagram
     </a>
 
-    <a href="https://www.facebook.com/sakirkhangrnoida" target="_blank" style="background-color: #1877F2; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; margin: 3px; display: inline-block; font-size: 13px;">
-        👍 Facebook Like
+    <a href="https://www.facebook.com/sakirkhangrnoida" target="_blank" style="background-color: #1877F2; color: white; padding: 6px 12px; border-radius: 15px; text-decoration: none; font-weight: bold; margin: 2px; display: inline-block; font-size: 12px;">
+        👍 Facebook
     </a>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 10px 0;">
+    <hr style="border: 0; border-top: 1px solid #333; margin: 8px 0;">
 
-    <p style="color: #ff9900; margin: 0 0 8px 0; font-size: 13px; font-weight: bold;">💬 अपने सवाल यहाँ पूछें (Ask Questions)</p>
+    <p style="color: #ff9900; margin: 0 0 5px 0; font-size: 12px; font-weight: bold;">💬 अपने सवाल यहाँ पूछें</p>
     
-    <div id="disqus_thread" style="background: #ffffff; padding: 8px; border-radius: 8px; text-align: left;"></div>
+    <style>
+        #disqus_thread {
+            background: #ffffff; 
+            padding: 6px; 
+            border-radius: 8px; 
+            text-align: left;
+        }
+        /* इमोजी वाले सेक्शन को छोटा और सिकोड़ने के लिए */
+        #disqus_thread iframe {
+            max-height: 500px !important;
+        }
+        /* डिस्क्युस के अंदर के मार्जिन को कम करना */
+        .disqus-reactions-v2 {
+            transform: scale(0.75) !important;
+            margin: -15px auto !important;
+            transform-origin: top center;
+        }
+    </style>
 
+    <div id="disqus_thread"></div>
+
+</div>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://sk-pharmacy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        
 </div>
 
 <script>
