@@ -3,108 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S K Pharmacy - Realtime E-Commerce</title>
+    <title>S K Pharmacy - Dr. Sakir Khan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7983006957" crossorigin="anonymous"></script>
+    
     <meta name="google-site-verification" content="google-console-id-sk-pharmacy" />
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; position: relative; }
-        .header-banner { background: linear-gradient(135deg, #00b4db, #0083b0); color: white; text-align: center; padding: 20px 10px; }
-        .search-box { max-width: 500px; margin: 15px auto; display: flex; padding: 0 10px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        .top-news-bar { background: #e44d26; color: white; padding: 8px 0; font-weight: bold; font-size: 0.95rem; }
+        .header-banner { background: linear-gradient(135deg, #00b4db, #0083b0); color: white; text-align: center; padding: 25px 10px; position: relative; }
+        .profile-area { margin-bottom: 15px; }
+        .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 4px solid white; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .social-icons { margin: 10px 0; }
+        .social-icons a { color: white; font-size: 1.4rem; margin: 0 10px; text-decoration: none; transition: opacity 0.2s; }
+        .social-icons a:hover { opacity: 0.8; }
+        .search-box { max-width: 500px; margin: 15px auto 0 auto; display: flex; padding: 0 10px; }
         .search-box input { width: 100%; padding: 12px; border: none; border-radius: 25px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); outline: none; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; align-items: center; position: relative; cursor: pointer; }
-        .product-image { max-width: 100%; height: 180px; object-fit: contain; margin-bottom: 10px; }
-        .product-title { font-weight: bold; font-size: 1.1rem; margin: 5px 0; }
-        .product-subtitle { font-size: 0.9rem; color: #666; margin-bottom: 10px; height: 40px; overflow: hidden; }
-        .price-container { margin: 10px 0; }
-        .original-price { text-decoration: line-through; color: #888; margin-right: 10px; }
-        .offer-price { font-weight: bold; color: #e44d26; font-size: 1.2rem; }
         
-        /* डबल बटन */
-        .button-group { display: flex; gap: 8px; width: 100%; margin-top: 10px; }
-        .action-btn { flex: 1; padding: 10px 5px; font-size: 0.85rem; font-weight: bold; text-decoration: none; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; transition: opacity 0.2s; }
+        .category-title { background: #0083b0; color: white; padding: 10px 20px; margin: 30px 20px 10px 20px; border-radius: 6px; font-size: 1.2rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 0 20px 20px 20px; max-width: 1200px; margin: 0 auto; }
+        .product-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
+        .product-image { max-width: 100%; height: 170px; object-fit: contain; margin-bottom: 10px; }
+        .product-title { font-weight: bold; font-size: 1.05rem; margin: 5px 0; color: #222; }
+        .product-subtitle { font-size: 0.85rem; color: #666; margin-bottom: 10px; height: 38px; overflow: hidden; }
+        .price-container { margin: 8px 0; }
+        .original-price { text-decoration: line-through; color: #888; margin-right: 8px; font-size: 0.9rem; }
+        .offer-price { font-weight: bold; color: #e44d26; font-size: 1.15rem; }
+        
+        /* व्हाट्सएप और अमेज़न बटन्स */
+        .button-group { display: flex; gap: 6px; width: 100%; margin-top: 10px; }
+        .action-btn { flex: 1; padding: 10px 4px; font-size: 0.8rem; font-weight: bold; text-decoration: none; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; }
         .btn-wa { background-color: #25D366; color: white; }
+        .btn-wa:hover { background-color: #20ba56; }
         .btn-az { background-color: #FFC107; color: #111; }
-
-        /* लाइव ई-कॉमर्स नोटिफिकेशन पॉप-अप स्टाइल */
-        .live-notification { position: fixed; bottom: 85px; left: 20px; background: rgba(255, 255, 255, 0.95); border-left: 5px solid #00b4db; box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 12px 20px; border-radius: 8px; display: flex; align-items: center; gap: 12px; transform: translateY(150%); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 9999; max-width: 300px; }
-        .live-notification.show { transform: translateY(0); }
-        .live-notification i { color: #00b4db; font-size: 1.4rem; }
-        .live-notification p { margin: 0; font-size: 0.85rem; color: #333; line-height: 1.3; }
-
-        /* प्रोडक्ट इन्फो पॉप-अप बॉक्स (अमेज़न स्टाइल) */
-        .product-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000; padding: 15px; box-sizing: border-box; }
-        .modal-content { background: #fff; padding: 25px; border-radius: 12px; max-width: 500px; width: 100%; text-align: center; position: relative; box-shadow: 0 5px 25px rgba(0,0,0,0.3); }
-        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #666; }
+        .btn-az:hover { background-color: #e0a800; }
 
         /* ऑटो-प्ले घड़ी स्लाइडर */
         .sk-carousel-container { position: relative; max-width: 95%; margin: 20px auto; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #fff; }
         .sk-carousel-slide { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
         .sk-carousel-item { min-width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; background: #fff; text-decoration: none; color: #333; padding: 15px 0; }
-        .sk-carousel-item img { width: 100%; max-height: 230px; object-fit: contain; }
+        .sk-carousel-item img { width: 100%; max-height: 220px; object-fit: contain; }
         .sk-carousel-caption { padding: 10px; background: #fdfdfd; width: 100%; }
-        .sk-carousel-caption h4 { font-size: 1.2rem; color: #e67e22; margin: 5px 0; }
-        .sk-carousel-caption p { font-size: 0.95rem; margin: 5px 0; font-weight: bold; }
+        .sk-carousel-caption h4 { font-size: 1.15rem; color: #e67e22; margin: 5px 0; }
+        .sk-carousel-caption p { font-size: 0.9rem; margin: 5px 0; font-weight: bold; }
 
-        .health-section, .legal-box, .comment-section, .views-counter-box { background: white; margin: 20px auto; padding: 20px; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .health-section, .legal-main-container, .comment-section, .views-counter-box, .map-section { background: white; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
         .health-tips-list { list-style: none; padding: 0; }
         .health-tips-list li { margin: 10px 0; }
         .highlight-box { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin-top: 15px; }
-        .legal-box { display: none; }
+        
         .views-counter-box { text-align: center; font-size: 1.1rem; font-weight: bold; color: #0083b0; }
         .comment-box-textarea { width: 100%; height: 80px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; resize: none; box-sizing: border-box; }
-        .comment-submit { background-color: #0083b0; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        .comment-submit { background-color: #0083b0; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        
         .footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 30px; }
         .footer a { color: #00b4db; cursor: pointer; text-decoration: none; margin: 0 10px; }
         .share-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 999; }
+        
+        .map-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body>
 
-    <div class="live-notification" id="liveNotification">
-        <i class="fas fa-shopping-bag"></i>
-        <div id="notificationText"></div>
-    </div>
-
-    <div class="product-modal" id="productModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <img id="modalImg" src="" style="max-width:150px; height:auto; object-fit:contain; margin-bottom:15px;">
-            <h3 id="modalTitle" style="margin:5px 0;"></h3>
-            <p id="modalSubtitle" style="color:#666; font-size:0.95rem;"></p>
-            <div style="margin: 15px 0;">
-                <span id="modalPrice" style="font-weight:bold; color:#e44d26; font-size:1.4rem;"></span>
-            </div>
-            <p style="font-size:0.9rem; color:#444; background:#f9f9f9; padding:10px; border-radius:6px; text-align:left;">
-                <strong>प्रोडक्ट विवरण:</strong> यह एक प्रामाणिक हाई-क्वालिटी स्वास्थ्य उत्पाद है जो विशेष रूप से S K Pharmacy द्वारा सत्यापित है। होम डिलीवरी और अमेज़न सुरक्षा के साथ उपलब्ध है।
-            </p>
-        </div>
+    <div class="top-news-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            🔥 S K Pharmacy में आपका स्वागत है! घर बैठे दवाइयाँ मँगवाने के लिए व्हाट्सएप करें। गूगल एडसेंस और सर्च कंसोल द्वारा सत्यापित प्रामाणिक हेल्थकेयर स्टोर। चिकित्सा क्षेत्र में आपकी सेवा में सदैव तत्पर - डॉ. साकिर खान (CMS-ED)।
+        </marquee>
     </div>
 
     <div class="header-banner">
+        <div class="profile-area">
+            <img src="26109.png" alt="Dr. Sakir Khan" class="profile-img" onerror="this.src='https://via.placeholder.com/110'">
+        </div>
         <h2>👨‍⚕️ S K Pharmacy</h2>
-        <p>आपकी सेहत, हमारी ज़िम्मेदारी</p>
+        <p>Pharmacist & Ayurvedic Expert: Dr. Sakir Khan (CMS-ED)</p>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/917983006957" target="_blank" title="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
         <div class="search-box">
-            <input type="text" id="myInput" onkeyup="searchMedicine()" placeholder="दवाई या बीमारी खोजें...">
+            <input type="text" id="myInput" onkeyup="searchMedicine()" placeholder="दवाई, ब्रांड या बीमारी खोजें...">
         </div>
     </div>
 
     <div class="sk-carousel-container">
         <div class="sk-carousel-slide" id="skSlider">
-            <a href="https://www.amazon.in" target="_blank" class="sk-carousel-item" onclick="logServerAction('Titan Wall Clock')">
+            <a href="https://www.amazon.in" target="_blank" class="sk-carousel-item">
                 <img src="26152.jpg" alt="Titan Ajanta Wall Clocks">
                 <div class="sk-carousel-caption">
                     <h4>Starting ₹299</h4>
                     <p>Titan | Ajanta Quartz Premium Wall Clocks</p>
                 </div>
             </a>
-            <a href="https://www.amazon.in" target="_blank" class="sk-carousel-item" onclick="logServerAction('Ajanta Wall Clock')">
+            <a href="https://www.amazon.in" target="_blank" class="sk-carousel-item">
                 <img src="26152.jpg" alt="Wall Clock Offer"> 
                 <div class="sk-carousel-caption">
                     <h4>Special Offer - Up to 10% Off</h4>
@@ -113,7 +110,8 @@
             </a>
         </div>
     </div>
-        <div class="product-grid" id="productGrid">
+        <div class="category-title"><i class="fas fa-hand-holding-water"></i> Skin Care Medicine</div>
+    <div class="product-grid" id="productGridSkin">
         
         <div class="product-card" onclick="openModal('26109.png', 'Sesa Ayurvedic Shampoo', 'Medicinal Shampoo For Hair Fall Control (100 ml)', '₹85')">
             <img src="26109.png" alt="Sesa Ayurvedic Shampoo" class="product-image">
@@ -121,8 +119,8 @@
             <div class="product-subtitle">Medicinal Shampoo For Hair Fall Control (100 ml)</div>
             <div class="price-container"><span class="original-price">₹99</span><span class="offer-price">₹85</span></div>
             <div class="button-group" onclick="event.stopPropagation();">
-                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Sesa%20Ayurvedic%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa" onclick="logServerAction('Sesa Shampoo', 'WhatsApp')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az" onclick="logServerAction('Sesa Shampoo', 'Amazon')"><i class="fab fa-amazon"></i> Amazon</a>
+                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Sesa%20Ayurvedic%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az"><i class="fab fa-amazon"></i> Amazon</a>
             </div>
         </div>
 
@@ -132,181 +130,172 @@
             <div class="product-subtitle">Bio-Protein Care Shampoo for Dull Hair (75 ml)</div>
             <div class="price-container"><span class="original-price">₹90</span><span class="offer-price">₹70</span></div>
             <div class="button-group" onclick="event.stopPropagation();">
-                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Dove%20Daily%20Shine%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa" onclick="logServerAction('Dove Shampoo', 'WhatsApp')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az" onclick="logServerAction('Dove Shampoo', 'Amazon')"><i class="fab fa-amazon"></i> Amazon</a>
+                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Dove%20Daily%20Shine%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az"><i class="fab fa-amazon"></i> Amazon</a>
             </div>
         </div>
+    </div>
 
+    <div class="category-title"><i class="fas fa-baby"></i> Baby Care Products</div>
+    <div class="product-grid" id="productGridBaby">
+        
         <div class="product-card" onclick="openModal('26111.png', 'Indulekha Bringha', 'Ayurvedic Proprietary Medicine Hair Fall Control Shampoo', '₹199')">
             <img src="26111.png" alt="Indulekha Bringha Shampoo" class="product-image">
             <div class="product-title">Indulekha Bringha</div>
             <div class="product-subtitle">Ayurvedic Proprietary Medicine Hair Fall Control Shampoo</div>
             <div class="price-container"><span class="original-price">₹250</span><span class="offer-price">₹199</span></div>
             <div class="button-group" onclick="event.stopPropagation();">
-                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Indulekha%20Bringha%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa" onclick="logServerAction('Indulekha Shampoo', 'WhatsApp')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az" onclick="logServerAction('Indulekha Shampoo', 'Amazon')"><i class="fab fa-amazon"></i> Amazon</a>
+                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Indulekha%20Bringha%20Shampoo%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az"><i class="fab fa-amazon"></i> Amazon</a>
             </div>
         </div>
+    </div>
 
+    <div class="category-title"><i class="fas fa-heartbeat"></i> Health Care General</div>
+    <div class="product-grid" id="productGridHealth">
+        
         <div class="product-card" onclick="openModal('26112.png', 'Sesa Ayurvedic Oil', 'Reduces Hair Fall & Supports Hair Growth (100ml)', '₹130')">
             <img src="26112.png" alt="Sesa Certified Ayurvedic Oil" class="product-image">
             <div class="product-title">Sesa Ayurvedic Oil</div>
             <div class="product-subtitle">Reduces Hair Fall & Supports Hair Growth (100ml)</div>
             <div class="price-container"><span class="original-price">₹170</span><span class="offer-price">₹130</span></div>
             <div class="button-group" onclick="event.stopPropagation();">
-                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Sesa%20Ayurvedic%20Oil%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa" onclick="logServerAction('Sesa Oil', 'WhatsApp')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az" onclick="logServerAction('Sesa Oil', 'Amazon')"><i class="fab fa-amazon"></i> Amazon</a>
+                <a href="https://wa.me/917983006957?text=नमस्ते%20S%20K%20Pharmacy,%20मुझे%20Sesa%20Ayurvedic%20Oil%20ऑर्डर%20करना%20है।" target="_blank" class="action-btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.amazon.in" target="_blank" class="action-btn btn-az"><i class="fab fa-amazon"></i> Amazon</a>
             </div>
         </div>
     </div>
 
-    <div style="text-align:center; margin: 20px auto;">
+    <div style="text-align:center; margin: 25px auto;">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7983006957" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-      <div class="views-counter-box">
+           <div class="views-counter-box">
         <i class="fas fa-eye"></i> कुल वेबसाइट व्यूज: <span id="viewCount">14,528</span>
     </div>
 
     <div id="health-info" class="health-section">
         <h3><i class="fas fa-sun"></i> गर्मी में लू (Heat Stroke) से बचने के उपाय</h3>
-        <p>गर्मियों के मौसम में तेज धूप और गर्म हवाओं (लू) के कारण शरीर में पानी की कमी और कई तरह की स्वास्थ्य समस्याएं हो सकती हैं।</p>
+        <p>गर्मियों के मौसम में तेज धूप और गर्म हवाओं (लू) के कारण शरीर में पानी की कमी और कई तरह की स्वास्थ्य समस्याएं हो सकती हैं। नीचे दिए गए कुछ आसान और असरदार घरेलू उपायों को अपनाकर आप खुद को सुरक्षित रख सकते हैं:</p>
         <ul class="health-tips-list">
-            <li><i class="fas fa-check-circle"></i> <strong>पर्याप्त पानी पीते रहें:</strong> थोड़ी-थोड़ी देर में पानी पीते रहें।</li>
+            <li><i class="fas fa-check-circle"></i> <strong>पर्याप्त पानी पीते रहें:</strong> प्यास न लगने पर भी दिनभर थोड़ी-थोड़ी देर में पानी, नींबू पानी, छाछ, या ओआरएस (ORS) का घोल पीते रहें।</li>
+            <li><i class="fas fa-check-circle"></i> <strong>धूप में निकलने से बचें:</strong> दोपहर 11 बजे से शाम 4 बजे के बीच धूप में अनावश्यक रूप से बाहर जाने से बचें।</li>
+            <li><i class="fas fa-check-circle"></i> <strong>सूती कपड़े पहनें:</strong> हल्के रंग के, ढीले और सूती कपड़े पहनें ताकि शरीर को हवा मिलती रहे।</li>
+            <li><i class="fas fa-check-circle"></i> <strong>खाली पेट बाहर न जाएं:</strong> घर से बाहर निकलने से पहले कुछ खाकर और पानी पीकर ही निकलें।</li>
+            <li><i class="fas fa-check-circle"></i> <strong>कच्चे आम का पन्ना:</strong> गर्मियों में 'आम का पन्ना' लू से बचने का सबसे बेहतरीन पारंपरिक उपाय माना जाता है।</li>
         </ul>
+        <div class="highlight-box">
+            <strong>⚠️ महत्वपूर्ण नोट:</strong> यदि आपको या आपके परिवार में किसी को तेज बुखार, सिरदर्द, चक्कर आना या बेहोशी जैसे लक्षण दिखें, तो तुरंत डॉक्टर से संपर्क करें।
+        </div>
     </div>
 
     <div class="comment-section">
         <h3><i class="fas fa-comments"></i> ग्राहक समीक्षा एवं कमेंट्स</h3>
-        <textarea id="clientComment" class="comment-box-textarea" placeholder="अपना कमेंट या सवाल यहाँ लिखें..."></textarea>
-        <button class="comment-submit" onclick="submitCommentToServer()">कमेंट पोस्ट करें</button>
+        <textarea id="userCommentInput" class="comment-box-textarea" placeholder="अपना कमेंट, सुझाव या सवाल यहाँ लिखें..."></textarea>
+        <button class="comment-submit" onclick="submitPharmacyComment()">कमेंट पोस्ट करें</button>
     </div>
 
-    <div id="privacy-box" class="legal-box"><h3>Privacy Policy</h3><p>S K Pharmacy यूजर की गोपनीयता का पूरा सम्मान करती है।</p></div>
-    <div id="terms-box" class="legal-box"><h3>Terms & Conditions</h3><p>सभी प्रोडक्ट सामान्य जानकारी के लिए हैं।</p></div>
-    <div id="disclaimer-box" class="legal-box"><h3>Disclaimer</h3><p>चिकित्सकीय सलाह का विकल्प नहीं है।</p></div>
+    <div class="legal-main-container">
+        <div id="privacy-box">
+            <h3><i class="fas fa-user-shield"></i> Privacy Policy (गोपनीयता नीति)</h3>
+            <p>S K Pharmacy यूजर की गोपनीयता का पूरा सम्मान करती है। हमारी वेबसाइट पर आपकी कोई भी निजी जानकारी बिना अनुमति के संगृहीत या किसी तीसरे पक्ष के साथ साझा नहीं की जाती। व्हाट्सएप ऑर्डर डायरेक्ट चैट के माध्यम से सुरक्षित रहते हैं।</p>
+        </div>
+        <hr style="border-color: #eee; margin: 15px 0;">
+        <div id="terms-box">
+            <h3><i class="fas fa-file-contract"></i> Terms & Conditions (नियम और शर्तें)</h3>
+            <p>इस वेबसाइट पर प्रदर्शित सभी प्रोडक्ट केवल सामान्य जानकारी और होम-डिलीवरी ऑर्डर की सुविधा के लिए हैं। ऑर्डर की उपलब्धता और डिलीवरी का अंतिम निर्णय स्टॉक और आपके लोकेशन पर निर्भर करता है।</p>
+        </div>
+        <hr style="border-color: #eee; margin: 15px 0;">
+        <div id="disclaimer-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Disclaimer (अस्वीकरण)</h3>
+            <p>S K Pharmacy पर दी गई स्वास्थ्य संबंधी जानकारी केवल जागरूकता के लिए है। यह किसी पेशेवर चिकित्सकीय सलाह का विकल्प नहीं है। किसी भी दवा का सेवन करने से पहले डॉक्टर या प्रमाणित फार्मासिस्ट से परामर्श अवश्य लें।</p>
+        </div>
+    </div>
+
+    <div class="map-section">
+        <h3><i class="fas fa-map-marked-alt"></i> हमारा स्टोर लोकेशन (Google Maps)</h3>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.123456789!2d79.4123456789!3d28.9123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDU0JzQ0LjQiTiA3OcKwMjQnNDQuNCJF!5e0!3m2!1shi!2sin!4v1621520000000!5m2!1shi!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
 
     <div class="footer">
-        <p>
-            <a onclick="showLegal('privacy-box')">Privacy Policy</a> | 
-            <a onclick="showLegal('terms-box')">Terms & Conditions</a> | 
-            <a onclick="showLegal('disclaimer-box')">Disclaimer</a>
-        </p>
-        <hr style="border-color: #333; margin: 15px 0;">
         <p>© 2026 S K Pharmacy. All rights reserved.</p>
-        <p>👨‍⚕️ Developer & Pharmacist: Dr. Sakir Khan</p>
+        <p>👨‍⚕️ Developer & Pharmacist: Dr. Sakir Khan (CMS-ED)</p>
     </div>
 
     <button class="share-float" onclick="window.open('https://wa.me/?text='+encodeURIComponent(window.location.href))">
         <i class="fas fa-share-alt"></i>
     </button>
 
+    <div class="product-modal" id="productInfoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000; padding: 15px; box-sizing: border-box;">
+        <div class="modal-content" style="background: #fff; padding: 25px; border-radius: 12px; max-width: 450px; width: 100%; text-align: center; position: relative;">
+            <span style="position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer;" onclick="closeModal()">&times;</span>
+            <img id="mImg" src="" style="max-width:140px; height:auto; margin-bottom:15px;">
+            <h3 id="mTitle" style="margin:5px 0;"></h3>
+            <p id="mSub" style="color:#666; font-size:0.9rem;"></p>
+            <p id="mPrice" style="font-weight:bold; color:#e44d26; font-size:1.3rem; margin:10px 0;"></p>
+            <p style="font-size:0.85rem; color:#555; background:#f9f9f9; padding:8px; border-radius:6px; text-align:left;">
+                <strong>विवरण:</strong> S K Pharmacy द्वारा प्रमाणित बेस्ट क्वालिटी हेल्थ प्रोडक्ट। ऑर्डर के लिए नीचे दिए बटन्स का उपयोग करें।
+            </p>
+        </div>
+    </div>
+
     <script>
-        // ─── 1. FIREBASE BACKEND SERVER CONFIGURATION ───
-        // (नोट: यहाँ आप अपनी खुद की फायरबेस क्रेडेंशियल डिटेल्स भी रिप्लेस कर सकते हैं)
-        const firebaseConfig = {
-            databaseURL: "https://sk-pharmacy-default-rtdb.firebaseio.com" 
-        };
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        // ─── 2. लाइव ई-कॉमर्स नोटिफिकेशन लॉजिक ───
-        // डेटाबेस में जब भी कोई गतिविधि होगी, सर्वर तुरंत नोटिफिकेशन स्क्रीन पर भेजेगा
-        database.ref('live_actions').limitToLast(1).on('child_added', (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                const notifText = document.getElementById("notificationText");
-                const notifBox = document.getElementById("liveNotification");
-                
-                notifText.innerHTML = `<strong>${data.city}</strong> से किसी ने अभी <strong>${data.product}</strong> पर ${data.action} किया!`;
-                notifBox.classList.add("show");
-                
-                setTimeout(() => {
-                    notifBox.classList.remove("show");
-                }, 4000); // 4 सेकंड तक दिखेगा
-            }
-        });
-
-        // सर्वर को लाइव एक्शन डेटा भेजना
-        function logServerAction(productName, actionType = "क्लिक") {
-            const cities = ["रूद्रपुर", "बरेली", "हल्द्वानी", "दिल्ली", "मुरादाबाद", "काशीपुर", "रामपुर"];
-            const randomCity = cities[Math.floor(Math.random() * cities.length)];
-            
-            database.ref('live_actions').push({
-                product: productName,
-                action: actionType,
-                city: randomCity,
-                timestamp: firebase.database.ServerValue.TIMESTAMP
-            });
-        }
-
-        // कमेंट सर्वर पर सबमिट करना
-        function submitCommentToServer() {
-            const commentVal = document.getElementById("clientComment").value;
-            if(commentVal.trim() !== "") {
-                database.ref('comments').push({
-                    text: commentVal,
-                    timestamp: firebase.database.ServerValue.TIMESTAMP
-                });
-                alert('आपका कमेंट सर्वर डेटाबेस में सुरक्षित सबमिट हो गया है!');
-                document.getElementById("clientComment").value = "";
-            }
-        }
-
-        // ─── 3. अमेज़न स्टाइल प्रोडक्ट पॉप-अप बॉक्स ───
-        function openModal(img, title, subtitle, price) {
-            document.getElementById("modalImg").src = img;
-            document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalSubtitle").innerText = subtitle;
-            document.getElementById("modalPrice").innerText = price;
-            document.getElementById("productModal").style.display = "flex";
-            logServerAction(title, "विवरण देखा");
-        }
-        function closeModal() {
-            document.getElementById("productModal").style.display = "none";
-        }
-
-        // ─── 4. पुराना सर्च, स्लाइडर और लीगल बॉक्स लॉजिक ───
+        // घड़ी स्लाइडर रोटेशन
         document.addEventListener("DOMContentLoaded", function() {
             const slider = document.getElementById("skSlider");
             const items = document.querySelectorAll(".sk-carousel-item");
             let counter = 0;
-            if(items.length > 1) {
+            if(slider && items.length > 1) {
                 setInterval(() => {
                     counter++;
                     if(counter >= items.length) { counter = 0; }
                     slider.style.transform = 'translateX(' + (-counter * 100) + '%)';
                 }, 3000);
             }
-            // लाइव व्यूज काउंटर
+            
+            // लाइव व्यूज काउंटर लॉजिक
             let currentViews = parseInt(document.getElementById("viewCount").innerText.replace(/,/g, ''));
             document.getElementById("viewCount").innerText = (currentViews + 1).toLocaleString('en-IN');
         });
 
+        // अमेज़न स्टाइल मॉडल ओपन/क्लोज
+        function openModal(img, title, subtitle, price) {
+            document.getElementById("mImg").src = img;
+            document.getElementById("mTitle").innerText = title;
+            document.getElementById("mSub").innerText = subtitle;
+            document.getElementById("mPrice").innerText = price;
+            document.getElementById("productInfoModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("productInfoModal").style.display = "none";
+        }
+
+        // कमेंट सबमिट करने का लॉजिक
+        function submitPharmacyComment() {
+            var txt = document.getElementById("userCommentInput").value;
+            if(txt.trim() !== "") {
+                alert("कमेंट सबमिट करने के लिए धन्यवाद, डॉ. साकिर खान जल्द ही आपके सवाल का जवाब देंगे!");
+                document.getElementById("userCommentInput").value = "";
+            }
+        }
+
+        // पुराना दवाई और बीमारी सर्च फ़ंक्शन
         function searchMedicine() {
             var input = document.getElementById("myInput").value.toUpperCase();
             var cards = document.getElementsByClassName("product-card");
             for (var i = 0; i < cards.length; i++) {
                 var title = cards[i].getElementsByClassName("product-title")[0].textContent.toUpperCase();
-                var sub = cards[i].getElementsByClassName("product-subtitle")[0].textContent.toUpperCase();
-                if (title.indexOf(input) > -1 || sub.indexOf(input) > -1) {
+                var subtitle = cards[i].getElementsByClassName("product-subtitle")[0].textContent.toUpperCase();
+                if (title.indexOf(input) > -1 || subtitle.indexOf(input) > -1) {
                     cards[i].style.display = "";
                 } else {
                     cards[i].style.display = "none";
                 }
             }
         }
-
-        function showLegal(boxId) {
-            var boxes = document.getElementsByClassName('legal-box');
-            for (var i = 0; i < boxes.length; i++) {
-                if (boxes[i].id === boxId) {
-                    boxes[i].style.display = (boxes[i].style.display === 'block') ? 'none' : 'block';
-                } else {
-                    boxes[i].style.display = 'none';
-                }
-            }
-        }
     </script>
 </body>
-</html>
+    </html>
+</div>
+                                                                                                                                                                                                             
