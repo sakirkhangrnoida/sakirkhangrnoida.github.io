@@ -2,8 +2,14 @@
 <html lang="hi">
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>S K Pharmacy - Dr. Sakir Khan</title>
+
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHBYCVBM02"></script>
+
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -18,7 +24,8 @@ w[l]=w[l]||[];
 w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});
 var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+j=d.createElement(s),
+dl=l!='dataLayer'?'&l='+l:'';
 j.async=true;
 j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
 f.parentNode.insertBefore(j,f);
@@ -30,24 +37,19 @@ f.parentNode.insertBefore(j,f);
 
 <meta name="google-site-verification" content="4-4UD91YkjvRP15UHdDKRAlNLMZ_VDnd8edfcVagnSo"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>S K Pharmacy - Dr. Sakir Khan</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 
 body{
-font-family:Arial,sans-serif;
 margin:0;
+font-family:Arial,sans-serif;
 background:#f4f7f6;
 padding-bottom:100px;
 text-align:center;
 }
 
-/* TOP NEWS LINE */
+/* NEWS LINE */
 
 .ticker{
 background:#ff9800;
@@ -61,8 +63,8 @@ font-size:15px;
 
 .header{
 background:#1a1e23;
-padding:25px 15px;
 color:white;
+padding:25px 15px;
 }
 
 .logo{
@@ -73,24 +75,24 @@ border:4px solid orange;
 object-fit:cover;
 }
 
-/* SOCIAL BUTTON */
+/* SOCIAL */
 
 .social-links{
 display:flex;
 justify-content:center;
 gap:10px;
-flex-wrap:wrap;
 padding:15px;
 background:#1a1e23;
+flex-wrap:wrap;
 }
 
 .social-links a{
 text-decoration:none;
-color:white;
 padding:10px 15px;
 border-radius:25px;
 font-size:13px;
 font-weight:bold;
+color:white;
 }
 
 .insta{
@@ -108,9 +110,9 @@ background:#4285F4;
 /* SEARCH */
 
 .search-box{
-padding:15px;
 background:white;
 margin:15px;
+padding:15px;
 border-radius:15px;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
@@ -125,28 +127,60 @@ font-size:16px;
 box-sizing:border-box;
 }
 
-/* AUTO SLIDER */
+/* CATEGORY */
+
+.categories{
+display:flex;
+justify-content:space-around;
+background:white;
+margin:15px;
+padding:15px 5px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.cat-item{
+text-decoration:none;
+color:#333;
+font-size:13px;
+font-weight:bold;
+}
+
+.icon-circle{
+width:60px;
+height:60px;
+background:#f0f0f0;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+margin-bottom:8px;
+font-size:24px;
+}
+
+/* AUTO PRODUCT */
 
 .auto-slider{
 overflow:hidden;
 background:white;
-margin:15px;
-border-radius:15px;
+margin:20px 15px;
 padding:15px 0;
+border-radius:15px;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 .slider-track{
 display:flex;
-width:calc(250px * 12);
-animation:scroll 25s linear infinite;
+width:max-content;
+animation:scroll 20s linear infinite;
 }
 
 .slider-item{
 width:220px;
 margin:0 10px;
-padding:10px;
 background:#fff;
+padding:10px;
 border-radius:12px;
 border:1px solid #eee;
 }
@@ -158,7 +192,7 @@ object-fit:contain;
 }
 
 .slider-item h4{
-font-size:14px;
+font-size:15px;
 color:#333;
 }
 
@@ -182,11 +216,11 @@ font-size:13px;
 transform:translateX(0);
 }
 100%{
-transform:translateX(calc(-250px * 6));
+transform:translateX(-50%);
 }
 }
 
-/* PRODUCT */
+/* PRODUCTS */
 
 .section-title{
 font-size:24px;
@@ -258,69 +292,20 @@ font-weight:bold;
 width:85%;
 }
 
-/* LIVE NOTIFICATION */
-
-.live-notification{
-position:fixed;
-top:20px;
-left:20px;
-background:#1a1e23;
+.details-btn{
+display:inline-block;
+margin-top:10px;
+background:#ff9800;
 color:white;
-padding:12px 18px;
-border-radius:12px;
-z-index:9999;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-animation:fadein .5s;
-font-size:14px;
-}
-
-@keyframes fadein{
-from{
-opacity:0;
-transform:translateY(-20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* SHARE BUTTON */
-
-.share-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#007bff;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:25px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
+padding:10px 18px;
+border-radius:25px;
 text-decoration:none;
-z-index:999;
-}
-
-/* FOOTER */
-
-.footer{
-background:#1a1e23;
-color:white;
-padding:25px 15px;
-margin-top:30px;
-}
-
-.footer a{
-color:#ff9800;
-text-decoration:none;
-margin:0 8px;
+font-weight:bold;
+width:85%;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -364,7 +349,39 @@ Facebook
 
 </div>
 
-<!-- AMAZON STYLE AUTO PRODUCT SLIDER -->
+<div class="categories">
+
+<a href="medicines.html" class="cat-item">
+<div class="icon-circle" style="color:#ff4436;">
+<i class="fas fa-capsules"></i>
+</div>
+Medicines
+</a>
+
+<a href="skincare.html" class="cat-item">
+<div class="icon-circle" style="color:#4caf50;">
+<i class="fas fa-leaf"></i>
+</div>
+Skin Care
+</a>
+
+<a href="babycare.html" class="cat-item">
+<div class="icon-circle" style="color:#ffeb3b;">
+<i class="fas fa-baby"></i>
+</div>
+Baby Care
+</a>
+
+<a href="#health-info" class="cat-item">
+<div class="icon-circle" style="color:#e91e63;">
+<i class="fas fa-heart"></i>
+</div>
+Health
+</a>
+
+</div>
+
+<!-- AMAZON STYLE SLIDER -->
 
 <div class="auto-slider">
 
@@ -374,35 +391,28 @@ Facebook
 <img src="24664.png">
 <h4>Garnier AcnoFight</h4>
 <p>₹130</p>
-<a href="https://wa.me/917983006957">Buy Now</a>
+<a href="product1.html">View Details</a>
 </div>
 
 <div class="slider-item">
 <img src="24662.png">
 <h4>Nivea Men</h4>
 <p>₹150</p>
-<a href="https://wa.me/917983006957">Buy Now</a>
+<a href="product2.html">View Details</a>
 </div>
 
 <div class="slider-item">
 <img src="26113.png">
 <h4>Kesh Shine Oil</h4>
 <p>₹199</p>
-<a href="https://wa.me/917983006957">Buy Now</a>
-</div>
-
-<div class="slider-item">
-<img src="24650.png">
-<h4>Himalaya Neem</h4>
-<p>₹110</p>
-<a href="https://wa.me/917983006957">Buy Now</a>
+<a href="product3.html">View Details</a>
 </div>
 
 <div class="slider-item">
 <img src="26111.png">
 <h4>Indulekha</h4>
 <p>₹199</p>
-<a href="https://wa.me/917983006957">Buy Now</a>
+<a href="product4.html">View Details</a>
 </div>
 
 </div>
@@ -432,6 +442,10 @@ Anti Pimple Face Wash
 <span class="new-price">₹130</span>
 </div>
 
+<a href="product1.html" class="details-btn">
+View Details
+</a>
+
 <a href="https://wa.me/917983006957?text=मुझे%20Garnier%20AcnoFight%20चाहिए" target="_blank" class="buy-btn">
 <i class="fab fa-whatsapp"></i>
 Order Now
@@ -458,6 +472,10 @@ Deep Clean Face Wash
 <span class="new-price">₹150</span>
 </div>
 
+<a href="product2.html" class="details-btn">
+View Details
+</a>
+
 <a href="https://wa.me/917983006957?text=मुझे%20Nivea%20Men%20चाहिए" target="_blank" class="buy-btn">
 <i class="fab fa-whatsapp"></i>
 Order Now
@@ -466,32 +484,6 @@ Order Now
 </div>
 
 <!-- PRODUCT 3 -->
-
-<div class="product-card">
-
-<img src="24650.png" class="product-image">
-
-<div class="product-title">
-Himalaya Neem
-</div>
-
-<div class="product-subtitle">
-Purifying Neem Face Wash
-</div>
-
-<div class="price">
-<span class="old-price">₹150</span>
-<span class="new-price">₹110</span>
-</div>
-
-<a href="https://wa.me/917983006957?text=मुझे%20Himalaya%20Neem%20चाहिए" target="_blank" class="buy-btn">
-<i class="fab fa-whatsapp"></i>
-Order Now
-</a>
-
-</div>
-
-<!-- PRODUCT 4 -->
 
 <div class="product-card">
 
@@ -510,6 +502,10 @@ Ayurvedic Hair Oil
 <span class="new-price">₹199</span>
 </div>
 
+<a href="product3.html" class="details-btn">
+View Details
+</a>
+
 <a href="https://wa.me/917983006957?text=मुझे%20Kesh%20Shine%20Oil%20चाहिए" target="_blank" class="buy-btn">
 <i class="fab fa-whatsapp"></i>
 Order Now
@@ -517,7 +513,7 @@ Order Now
 
 </div>
 
-<!-- PRODUCT 5 -->
+<!-- PRODUCT 4 -->
 
 <div class="product-card">
 
@@ -536,6 +532,10 @@ Hair Fall Control Shampoo
 <span class="new-price">₹199</span>
 </div>
 
+<a href="product4.html" class="details-btn">
+View Details
+</a>
+
 <a href="https://wa.me/917983006957?text=मुझे%20Indulekha%20Shampoo%20चाहिए" target="_blank" class="buy-btn">
 <i class="fab fa-whatsapp"></i>
 Order Now
@@ -545,13 +545,46 @@ Order Now
 
 </div>
 
-<!-- COMMENT BOX -->
+<!-- ONLINE PAYMENT -->
 
 <div style="background:white;margin:20px 15px;padding:20px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
 
 <h3 style="color:#1a1e23;">
-💬 Customer Comments
+💳 Online Payment
 </h3>
+
+<p style="color:#666;">
+UPI / PhonePe / Google Pay Accepted
+</p>
+
+<a href="upi://pay?pa=7983006957@ibl&pn=SK%20Pharmacy&cu=INR"
+style="display:inline-block;background:#2ea44f;color:white;padding:12px 25px;border-radius:25px;text-decoration:none;font-weight:bold;">
+Pay Now
+</a>
+
+</div>
+
+<!-- COMMENT BOX -->
+
+<div style="text-align:center;margin:10px auto;padding:15px;background:#1c1e21;border:2px solid #ff9900;border-radius:15px;max-width:95%;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+
+<p style="color:#ffffff;font-size:16px;font-weight:bold;">
+✨ S K Pharmacy Support Box ✨
+</p>
+
+<a href="https://www.instagram.com/sakirkhangrnoida" target="_blank" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);color:white;padding:8px 15px;border-radius:20px;text-decoration:none;font-weight:bold;margin:5px;display:inline-block;">
+📸 Instagram
+</a>
+
+<a href="https://www.facebook.com/share/18kLQqxfc7/" target="_blank" style="background:#1877F2;color:white;padding:8px 15px;border-radius:20px;text-decoration:none;font-weight:bold;margin:5px;display:inline-block;">
+👍 Facebook
+</a>
+
+<hr style="border:0;border-top:1px solid #333;margin:15px 0;">
+
+<p style="color:#ff9900;font-size:15px;font-weight:bold;">
+💬 अपने सवाल यहाँ पूछें
+</p>
 
 <div id="disqus_thread"></div>
 
@@ -559,36 +592,114 @@ Order Now
 
 <!-- HEALTH SECTION -->
 
-<div style="background:white;margin:20px 15px;padding:25px;border-radius:15px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+<div id="health-info" style="background:white;margin:20px 15px;padding:25px;border-radius:15px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.08);border-top:5px solid #ff5722;">
 
-<h3 style="color:#ff5722;">
-☀️ गर्मी से बचने के उपाय
-</h3>
+<h2 style="color:#ff5722;text-align:center;">
+☀️ गर्मी में लू (Heat Stroke) से बचने के उपाय
+</h2>
 
-<p>
-दिनभर पानी पीते रहें, धूप में कम निकलें और ORS का सेवन करें।
+<p style="font-size:15px;color:#444;line-height:1.8;">
+
+गर्मियों के मौसम में तेज धूप, गर्म हवाएं और बढ़ता तापमान शरीर पर बुरा प्रभाव डाल सकता है।
+अधिक गर्मी के कारण शरीर में पानी की कमी, चक्कर आना, सिर दर्द, कमजोरी, उल्टी और लू जैसी गंभीर समस्याएं हो सकती हैं।
+
 </p>
 
-<ul style="line-height:30px;color:#333;">
-<li>✅ ज्यादा पानी पिएं</li>
-<li>✅ धूप से बचें</li>
-<li>✅ सूती कपड़े पहनें</li>
-<li>✅ ORS और नींबू पानी लें</li>
+<ul style="padding-left:20px;line-height:2;color:#333;font-size:15px;">
+
+<li>✅ ज्यादा पानी पिएं और ORS का सेवन करें।</li>
+
+<li>✅ धूप में बाहर निकलने से बचें।</li>
+
+<li>✅ सूती और हल्के कपड़े पहनें।</li>
+
+<li>✅ बच्चों और बुजुर्गों का विशेष ध्यान रखें।</li>
+
+<li>✅ तरबूज, खीरा और नारियल पानी का सेवन करें।</li>
+
+<li>✅ कच्चे आम का पन्ना गर्मी में बहुत फायदेमंद होता है।</li>
+
+<li>✅ सिर ढककर बाहर जाएं।</li>
+
+<li>✅ ज्यादा तला-भुना भोजन कम खाएं।</li>
+
 </ul>
+
+<div style="background:#fff5eb;padding:20px;border-radius:12px;border:2px dashed #ff9800;margin-top:20px;">
+
+<strong style="color:#d9534f;font-size:18px;">
+⚠️ महत्वपूर्ण जानकारी
+</strong>
+
+<p style="color:#333;font-size:15px;line-height:1.8;">
+
+यदि किसी व्यक्ति को तेज बुखार, उल्टी, चक्कर, कमजोरी या बेहोशी महसूस हो तो तुरंत डॉक्टर से संपर्क करें।
+
+</p>
+
+</div>
+
+</div>
+
+<!-- PRIVACY POLICY -->
+
+<div id="privacy-box" style="display:none;background:white;margin:15px;padding:20px;border-radius:10px;text-align:left;border-left:5px solid #ff9800;">
+
+<h3>Privacy Policy</h3>
+
+<p>
+S K Pharmacy यूजर की गोपनीयता का सम्मान करती है।
+आपकी जानकारी किसी तीसरे पक्ष के साथ साझा नहीं की जाती।
+</p>
+
+</div>
+
+<!-- TERMS -->
+
+<div id="terms-box" style="display:none;background:white;margin:15px;padding:20px;border-radius:10px;text-align:left;border-left:5px solid #ff9800;">
+
+<h3>Terms & Conditions</h3>
+
+<p>
+सभी प्रोडक्ट स्टॉक उपलब्धता पर निर्भर करते हैं।
+ऑर्डर और डिलीवरी की शर्तें लागू होंगी।
+</p>
+
+</div>
+
+<!-- DISCLAIMER -->
+
+<div id="disclaimer-box" style="display:none;background:white;margin:15px;padding:20px;border-radius:10px;text-align:left;border-left:5px solid #ff9800;">
+
+<h3>Disclaimer</h3>
+
+<p>
+वेबसाइट पर दी गई जानकारी केवल सामान्य स्वास्थ्य जागरूकता के लिए है।
+</p>
 
 </div>
 
 <!-- FOOTER -->
 
-<div class="footer">
+<div style="background:#1a1e23;color:white;padding:25px 15px;margin-top:30px;">
 
 <p>
 
-<a href="#">Privacy Policy</a> |
+<a onclick="showLegal('privacy-box')" style="color:#ff9800;cursor:pointer;">
+Privacy Policy
+</a>
 
-<a href="#">Terms & Conditions</a> |
+|
 
-<a href="#">Disclaimer</a>
+<a onclick="showLegal('terms-box')" style="color:#ff9800;cursor:pointer;">
+Terms & Conditions
+</a>
+
+|
+
+<a onclick="showLegal('disclaimer-box')" style="color:#ff9800;cursor:pointer;">
+Disclaimer
+</a>
 
 </p>
 
@@ -599,22 +710,69 @@ Order Now
 </p>
 
 <p>
-👨‍⚕️ Dr. Sakir Khan
+👨‍⚕️ Developer & Pharmacist: Dr. Sakir Khan
 </p>
 
 </div>
 
 <!-- SHARE BUTTON -->
 
-<a href="https://wa.me/?text=https://sakirkhangrnoida.github.io/" class="share-btn">
+<a href="https://wa.me/?text=https://sakirkhangrnoida.github.io/"
+style="position:fixed;bottom:20px;right:20px;background:#007bff;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;z-index:999;">
 
 <i class="fas fa-share-alt"></i>
 
 </a>
 
-<!-- DISQUS -->
+<!-- JAVASCRIPT -->
 
 <script>
+
+function searchMedicine(){
+
+var input, filter, grid, cards, title, i;
+
+input = document.getElementById("myInput");
+
+filter = input.value.toUpperCase();
+
+grid = document.getElementById("productGrid");
+
+cards = grid.getElementsByClassName("product-card");
+
+for(i=0;i<cards.length;i++){
+
+title = cards[i].getElementsByClassName("product-title")[0];
+
+txtValue = title.textContent || title.innerText;
+
+if(txtValue.toUpperCase().indexOf(filter) > -1){
+
+cards[i].style.display="";
+
+}else{
+
+cards[i].style.display="none";
+
+}
+
+}
+
+}
+
+function showLegal(boxId){
+
+var boxes = ['privacy-box','terms-box','disclaimer-box'];
+
+for(var i=0;i<boxes.length;i++){
+
+document.getElementById(boxes[i]).style.display='none';
+
+}
+
+document.getElementById(boxId).style.display='block';
+
+}
 
 var disqus_config = function () {
 this.page.url = window.location.href;
@@ -628,57 +786,19 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 
-</script>
-
-<!-- SEARCH -->
-
-<script>
-
-function searchMedicine() {
-
-var input, filter, grid, cards, title, i;
-
-input = document.getElementById("myInput");
-
-filter = input.value.toUpperCase();
-
-grid = document.getElementById("productGrid");
-
-cards = grid.getElementsByClassName("product-card");
-
-for (i = 0; i < cards.length; i++) {
-
-title = cards[i].getElementsByClassName("product-title")[0];
-
-txtValue = title.textContent || title.innerText;
-
-if (txtValue.toUpperCase().indexOf(filter) > -1) {
-
-cards[i].style.display = "";
-
-} else {
-
-cards[i].style.display = "none";
-
-}
-
-}
-
-}
-
 /* LIVE NOTIFICATION */
 
 const messages = [
 
-"🛒 किसी ने Garnier खरीदा",
+"🛒 New Order Received",
 
-"🔥 New Order Received",
+"💊 Medicine Ordered",
 
-"⭐ Trending Product",
+"⭐ Trending Product Purchased",
 
-"💊 Medicine Order Confirmed",
+"🔥 Hair Oil Ordered",
 
-"🛍️ Shampoo Ordered"
+"🛍️ New Customer Joined"
 
 ];
 
@@ -686,20 +806,26 @@ setInterval(() => {
 
 let note = document.createElement("div");
 
-note.className = "live-notification";
+note.style.position="fixed";
+note.style.top="20px";
+note.style.left="20px";
+note.style.background="#1a1e23";
+note.style.color="white";
+note.style.padding="12px 18px";
+note.style.borderRadius="12px";
+note.style.zIndex="9999";
+note.style.boxShadow="0 4px 12px rgba(0,0,0,0.3)";
 
 note.innerHTML =
-messages[Math.floor(Math.random() * messages.length)];
+messages[Math.floor(Math.random()*messages.length)];
 
 document.body.appendChild(note);
 
-setTimeout(() => {
-
+setTimeout(()=>{
 note.remove();
+},4000);
 
-}, 4000);
-
-}, 7000);
+},7000);
 
 </script>
 
