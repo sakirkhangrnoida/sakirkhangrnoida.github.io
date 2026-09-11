@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+यू<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
@@ -91,20 +91,32 @@
   <span onclick="window.location.href='admin-panel.html'" style="color:#FF9900;font-weight:bold;">Admin Panel</span>
   <span onclick="window.location.href='https://www.amazon.in/gp/goldbox?tag=skpharmacy078-21'" style="color:#FFD814;font-weight:bold;">Amazon Deals</span>
 </div>
-<!-- 10 BANNER SLIDER - 1001 to 1010 - AMAZON STYLE -->
-<div class="slider-container" id="skSlider">
-  <div class="slide active"><img src="1001.jpg" alt="1001"></div>
-  <div class="slide"><img src="1002.jpg" alt="1002"></div>
-  <div class="slide"><img src="1003.jpg" alt="1003"></div>
-  <div class="slide"><img src="1004.jpg" alt="1004"></div>
-  <div class="slide"><img src="1005.jpg" alt="1005"></div>
-  <div class="slide"><img src="1006.jpg" alt="1006"></div>
-  <div class="slide"><img src="1007.jpg" alt="1007"></div>
-  <div class="slide"><img src="1008.jpg" alt="1008"></div>
-  <div class="slide"><img src="1009.jpg" alt="1009"></div>
-  <div class="slide"><img src="1010.jpg" alt="1010"></div>
-  <div class="dots" id="dots"></div>
+<!-- 10 BANNER AUTO SLIDER 1001 to 1010 - START -->
+<div id="skSliderBox" style="width:100%;height:420px;position:relative;overflow:hidden;background:#fff;">
+  <img class="mySlides" src="1001.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;">
+  <img class="mySlides" src="1002.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1003.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1004.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1005.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1006.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1007.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1008.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1009.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
+  <img class="mySlides" src="1010.jpg" style="width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;display:none;">
 </div>
+<script>
+let sIndex=0;
+function autoSlide(){
+  let x=document.getElementsByClassName("mySlides");
+  for(let i=0;i<x.length;i++) x[i].style.display="none";
+  sIndex++;
+  if(sIndex>x.length) sIndex=1;
+  x[sIndex-1].style.display="block";
+  setTimeout(autoSlide,3000);
+}
+autoSlide();
+</script>
+<!-- 10 BANNER AUTO SLIDER - END -->
 
 <!-- 9 Cards Grid - CLEAN -->
 <div class="grid">
